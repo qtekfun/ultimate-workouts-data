@@ -32,6 +32,59 @@ except Exception as e:
     print("patterns_b not available:", e, file=sys.stderr)
 
 
+try:
+    from .patterns_z import PATTERNS as _Z
+    for _k, _v in _Z.items():
+        PATTERNS.setdefault(_k, _v)
+        SOURCES.setdefault(_k, "z")
+except Exception as e:
+    print("patterns_z not available:", e, file=sys.stderr)
+
+try:
+    from .patterns_x import PATTERNS as _X
+    for _k, _v in _X.items():
+        PATTERNS.setdefault(_k, _v)
+        SOURCES.setdefault(_k, "x")
+except Exception as e:
+    print("patterns_x not available:", e, file=sys.stderr)
+
+
+try:
+    from .patterns_y import PATTERNS as _Y
+    for _k, _v in _Y.items():
+        PATTERNS.setdefault(_k, _v)
+        SOURCES.setdefault(_k, "y")
+except Exception as e:
+    print("patterns_y not available:", e, file=sys.stderr)
+
+
+try:
+    from .patterns_r import PATTERNS as _R
+    for _k, _v in _R.items():
+        PATTERNS.setdefault(_k, _v)
+        SOURCES.setdefault(_k, "r")
+except Exception as e:
+    print("patterns_r not available:", e, file=sys.stderr)
+
+
+try:
+    from .patterns_q import PATTERNS as _Q
+    for _k, _v in _Q.items():
+        PATTERNS.setdefault(_k, _v)
+        SOURCES.setdefault(_k, "q")
+except Exception as e:
+    print("patterns_q not available:", e, file=sys.stderr)
+
+
+try:
+    from .patterns_p import PATTERNS as _P
+    for _k, _v in _P.items():
+        PATTERNS.setdefault(_k, _v)
+        SOURCES.setdefault(_k, "p")
+except Exception as e:
+    print("patterns_p not available:", e, file=sys.stderr)
+
+
 def build_spec(pattern, equipment="none", variants=(), hilite=None):
     fn = PATTERNS[pattern]
     return fn(equipment or "none", list(variants or []), hilite)

@@ -1,70 +1,49 @@
-"""Build a workout resource pack from a wger exerciseinfo dump (CC-BY-SA / CC0 per item)."""
-import json, os, re, sys, io, time, zipfile, html, urllib.request
-from PIL import Image
+"""Build the exercise pack from the files in this repository (no network, nothing third-party).
 
-SRC, OUT, CACHE = sys.argv[1], sys.argv[2], sys.argv[3]
-# Optional: our own Spanish drafts for exercises wger has no Spanish for (id -> {name, description}).
-ES = json.load(open(sys.argv[4])) if len(sys.argv) > 4 else {}
-MAXPX, QUALITY = 480, 72
-os.makedirs(os.path.join(OUT, 'media'), exist_ok=True); os.makedirs(CACHE, exist_ok=True)
-data = json.load(open(SRC))
-LANG = {2: 'en', 4: 'es'}
+usage: build_pack.py ANIM_DIR OUT_DIR [VERSION]
 
-def text(h):
-    h = re.sub(r'</(p|li)>', '\n', h or ''); h = re.sub(r'<[^>]+>', '', h)
-    return '\n'.join(l.strip() for l in html.unescape(h).splitlines() if l.strip())
+- data/exercises.json: id, category, muscles, equipment of every exercise
+- data/texts.json:     names, summary, steps and tips in English and Spanish
+- ANIM_DIR:            <id>.anim.webp files written by tools/imggen/render_all.py
+Writes OUT_DIR/manifest.json, OUT_DIR/exercises.json and OUT_DIR/media/. Zip OUT_DIR to publish it.
+"""
+import json
+import os
+import shutil
+import sys
+import datetime
 
-def authors(o):
-    a = [o.get('license_author')] if o.get('license_author') else []
-    return a + [x for x in o.get('author_history', []) if x not in a]
-
-def fetch(u):
-    p = os.path.join(CACHE, re.sub(r'\W', '_', u)[-120:])
-    if not os.path.exists(p):
-        open(p, 'wb').write(urllib.request.urlopen(u, timeout=60).read()); time.sleep(0.15)
-    return p
-
-exercises, size = [], 0
-for e in data:
-    names, descs, cred = {}, {}, set(authors(e))
-    for t in e['translations']:
-        l = LANG.get(t['language'])
-        if l and t['name']:
-            names[l] = t['name']; descs[l] = text(t['description']); cred.update(authors(t))
-    if 'en' not in names: continue
-    draft = []
-    if 'es' not in names and e['uuid'] in ES:
-        names['es'] = ES[e['uuid']]['name']; descs['es'] = ES[e['uuid']]['description']; draft.append('es')
-    media = []
-    for i in e['images']:
-        if i.get('is_ai_generated'): ai = True
-        try:
-            im = Image.open(fetch(i['image'])).convert('RGB')
-        except Exception as x:
-            print('skip image', i['image'], x, file=sys.stderr); continue
-        im.thumbnail((MAXPX, MAXPX))
-        rel = f"media/{e['uuid']}_{i['id']}.webp"
-        im.save(os.path.join(OUT, rel), 'WEBP', quality=QUALITY, method=6)
-        size += os.path.getsize(os.path.join(OUT, rel))
-        media.append({'file': rel, 'main': i['is_main'], 'ai': bool(i.get('is_ai_generated')),
-                      'license': {1: 'CC-BY-SA-3.0', 2: 'CC-BY-SA-4.0', 3: 'CC0-1.0', 4: 'CC-BY-4.0'}.get(i['license'], str(i['license'])),
-                      'authors': authors(i)})
-    exercises.append({
-        'id': e['uuid'], 'name': names, 'description': descs,
-        'category': e['category']['name'],
-        'muscles': [m['name_en'] or m['name'] for m in e['muscles']],
-        'musclesSecondary': [m['name_en'] or m['name'] for m in e['muscles_secondary']],
-        'equipment': [q['name'] for q in e['equipment']],
-        'draftTranslations': draft, 'license': e['license']['short_name'].replace(' ', '-'), 'authors': sorted(cred), 'media': media})
-
-json.dump({'schema': 1, 'source': 'wger.de', 'exercises': exercises}, open(os.path.join(OUT, 'exercises.json'), 'w'), ensure_ascii=False)
-json.dump({'schema': 1, 'id': 'wger', 'version': time.strftime('%Y%m%d'), 'languages': ['en', 'es'],
-           'exercises': len(exercises), 'withMedia': sum(1 for x in exercises if x['media']),
-           'licenses': ['CC-BY-SA-4.0', 'CC-BY-SA-3.0', 'CC0-1.0'],
-           'attribution': 'Exercise data and images from wger (https://wger.de), by their listed authors, under the licence stated per item.'},
-          open(os.path.join(OUT, 'manifest.json'), 'w'), indent=1)
-zp = OUT.rstrip('/') + '.zip'
-with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED) as z:
-    for r, _, fs in os.walk(OUT):
-        for f in fs: z.write(os.path.join(r, f), os.path.relpath(os.path.join(r, f), OUT))
-print(len(exercises), 'exercises; media', round(size / 1e6, 1), 'MB; zip', round(os.path.getsize(zp) / 1e6, 1), 'MB')
+root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+anim_dir, out = sys.argv[1], sys.argv[2]
+version = sys.argv[3] if len(sys.argv) > 3 else datetime.date.today().strftime('%Y%m%d')
+base = json.load(open(os.path.join(root, 'data', 'exercises.json'), encoding='utf-8'))
+texts = json.load(open(os.path.join(root, 'data', 'texts.json'), encoding='utf-8'))
+os.makedirs(os.path.join(out, 'media'), exist_ok=True)
+exercises = []
+for b in base:
+    t = texts[b['id']]
+    e = {
+        'id': b['id'],
+        'name': t['name'],
+        'description': {
+            l: t['summary'][l] + '\n\n' + '\n'.join(f'{i}. {s}' for i, s in enumerate(t['steps'][l], 1))
+            for l in ('en', 'es')
+        },
+        'summary': t['summary'], 'steps': t['steps'], 'tips': t['tips'],
+        'category': b['category'], 'muscles': b['muscles'], 'musclesSecondary': b['musclesSecondary'],
+        'equipment': b['equipment'], 'media': [],
+    }
+    src = os.path.join(anim_dir, b['id'] + '.anim.webp')
+    if os.path.isfile(src):
+        rel = f"media/{b['id']}.anim.webp"
+        shutil.copyfile(src, os.path.join(out, rel))
+        e['media'].append({'file': rel, 'main': True, 'ai': False, 'animated': True, 'generated': True,
+                           'license': 'CC0-1.0', 'authors': []})
+    exercises.append(e)
+json.dump({'schema': 2, 'source': 'original', 'exercises': exercises},
+          open(os.path.join(out, 'exercises.json'), 'w', encoding='utf-8'), ensure_ascii=False)
+anims = sum(1 for e in exercises if e['media'])
+json.dump({'schema': 2, 'id': 'wger', 'version': version, 'languages': ['en', 'es'], 'exercises': len(exercises),
+           'withMedia': anims, 'licenses': ['CC0-1.0'], 'attribution': '', 'animations': anims},
+          open(os.path.join(out, 'manifest.json'), 'w', encoding='utf-8'), indent=1)
+print('exercises', len(exercises), 'animations', anims)

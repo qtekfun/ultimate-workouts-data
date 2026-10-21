@@ -100,12 +100,19 @@ def squat(eq, var, hil):
 
 
 # ============================================================================================================ HINGE
-@pattern("hinge", used=("reverse", "romanian", "bodyweight", "single_arm", "standing"),
+@pattern("hinge", used=("reverse", "romanian", "bodyweight", "single_arm", "standing", "seated", "wide"),
          demos=[("barbell", [], "hamstrings"), ("barbell", ["reverse"], "glutes"), ("dumbbell", [], "glutes"),
                 ("kettlebell", [], "glutes"), ("none", [], "glutes"), ("cable", [], "glutes"), ("band", [], "hamstrings")])
 def hinge(eq, var, hil):
     rdl = has(var, "reverse", "romanian", "stiff")
     equip = None
+    if has(var, "seated") and eq in ("none", "mat", "bench"):
+        # good morning seated on the floor, legs out in front: the torso folds forward from the hips
+        kwb = dict(hand_t=(14, 12), elbow_side=1)
+        ank = (146, -5.5)
+        A = body(ankle=ank, hip=(0, -14), torso=0, foot=-80, **kwb)
+        B = body(ankle=ank, hip=(0, -14), torso=72, head=60, foot=-80, **kwb)
+        return spec([A, B], None, mat(-90, 170, 4), hil)
     if eq not in ("barbell", "sz_bar", "machine", "dumbbell", "kettlebell", "band", "cable"):
         eq = "none"
     if eq in ("barbell", "sz_bar", "machine"):
@@ -134,16 +141,48 @@ def hinge(eq, var, hil):
     top = body(hip=(-3, -145), torso=-2, hand_rel=(5, 98))
     if rdl:
         low = hang_pose(24, -(98 + 38), hip_y=-124)  # bar at mid-shin
+    elif has(var, "wide"):
+        # sumo stance: hips lower, torso more upright, hands inside the knees
+        low = hang_pose(14, bar_y - 98, hip_y=-64)
     else:
         low = hang_pose(12, bar_y - 98, hip_y=-82)
     return spec([low, top], equip, None, hil)
 
 
 # ============================================================================================================ LUNGE
-@pattern("lunge", used=("reverse", "alternating", "bodyweight", "front", "single_arm"),
+def _front_barbell_gear():
+    def back(d, T, P, s):
+        a, b = P["sh_l"], P["sh_r"]
+        wline(d, T, s, (a[0] - 46, a[1] - 7), (b[0] + 46, b[1] - 7), 4.0, METAL)
+        for sg, q in ((-1, a), (1, b)):
+            wcap(d, T, s, (q[0] + sg * 40, q[1] - 7 - 20), (q[0] + sg * 40, q[1] - 7 + 20), 4.4, 4.4, EQUIP)
+            wcap(d, T, s, (q[0] + sg * 46, q[1] - 7 - 14), (q[0] + sg * 46, q[1] - 7 + 14), 3.6, 3.6, RUBBER)
+    return Gear(front=back)
+
+
+def _lateral_lunge(eq, var, hil):
+    """Lateral (side) lunge / cossack squat seen from the front: one leg bends, the other stays straight."""
+    common = dict(foot_out=10)
+    if eq in ("barbell", "sz_bar", "machine"):
+        arms = dict(arm_l=(62, 150), arm_r=(62, 150))
+    else:
+        arms = dict(arm_l=(30, -112), arm_r=(30, -112))
+    A = fpose(pelvis=(0, -119), leg_l=(35.2, 35.2), leg_r=(35.2, 35.2), **arms, **common)
+    B = fpose(pelvis=(38, -80), leg_l=(56.7, 56.7), leg_r=(78, -23.6), head=-4, **arms, **common)
+    equip = None
+    if eq in ("barbell", "sz_bar", "machine"):
+        equip = _front_barbell_gear()
+    elif eq in ("dumbbell", "kettlebell"):
+        equip = front_dumbbells(1.1, which=("r",), axis="y")
+    return spec([A, B], equip, None, hil)
+
+
+@pattern("lunge", used=("reverse", "alternating", "bodyweight", "front", "single_arm", "wide"),
          demos=[("none", [], "quads"), ("dumbbell", [], "glutes"), ("barbell", [], "quads"),
                 ("kettlebell", [], "quads"), ("none", ["reverse"], "glutes"), ("dumbbell", ["reverse"], "glutes")])
 def lunge(eq, var, hil):
+    if has(var, "wide", "lateral", "side"):
+        return _lateral_lunge(eq, var, hil)
     front_ankle = (0, 0)
     toe_x = -108
     f2 = 62
@@ -211,7 +250,7 @@ def machine_seat(hip, torso, seat_len=(-26, 44), back_len=(-22, 78), th=11, fram
 
 
 # ============================================================================================================ LEG PRESS
-@pattern("leg_press", used=("seated", "single_arm"),
+@pattern("leg_press", used=("seated", "single_arm", "narrow", "wide"),
          demos=[("machine", [], "quads"), ("machine", ["seated"], "quads"), ("machine", [], "glutes")])
 def leg_press(eq, var, hil):
     seated = has(var, "seated")
@@ -262,9 +301,46 @@ def leg_press(eq, var, hil):
 
 
 # ============================================================================================================ LEG EXTENSION
-@pattern("leg_extension", used=("seated", "single_arm"),
+def _kneeling_line(ankle_y=-5.5):
+    return (0.0, ankle_y)
+
+
+def _sh_of(hip, torso):
+    return add(hip, vup(torso, L["torso"]))
+
+
+def _reverse_nordic(var, hil):
+    """Reverse Nordic curl: kneeling, body kept in one line, lean back from the knees."""
+    ank = (0, -5.5)
+    knee = (70.0, -5.5)
+    def pose(th):
+        hip = add(knee, vup(th, L["thigh"]))
+        sh = _sh_of(hip, th)
+        return body(ankle=ank, shin=90, thigh=th, torso=th, head=th, foot=90, hand=torso_pt(hip, th, 14, 14), elbow_side=1)
+    A, B = pose(0), pose(-42)
+    pad = Gear(back=lambda d, T, P, s: wcap(d, T, s, (-2, -9), (18, -9), 4.5, 4.5, PAD))
+    return spec([A, B], None, mat(-60, 130, 4), hil)
+
+
+def _tke(eq, var, hil):
+    """Terminal knee extension: standing, band behind the knee, the knee locks out."""
+    kwb = dict(hand_t=(80, 6), elbow_side=1)
+    A = body(ankle=(0, 0), hip=(-10, -139.5), torso=2, **kwb)
+    B = body(ankle=(0, 0), hip=(0, -145.5), torso=0, **kwb)
+    equip = None
+    if eq == "band":
+        equip = band((100, -78), lambda P: (P["knee"][0] - 7, P["knee"][1] + 2))
+    sc = post(100, -92, FLOOR, w=8) if eq == "band" else None
+    return spec([A, B], equip, sc, hil)
+
+
+@pattern("leg_extension", used=("seated", "single_arm", "standing", "bodyweight"),
          demos=[("machine", [], "quads"), ("machine", ["single_arm"], "quads")])
 def leg_extension(eq, var, hil):
+    if has(var, "standing") and not has(var, "seated"):
+        return _tke(eq, var, hil)
+    if has(var, "bodyweight") and eq in ("none", "mat") and not has(var, "seated"):
+        return _reverse_nordic(var, hil)
     hip = (-60, -83)
     torso = -9
     if eq != "machine":
@@ -288,10 +364,53 @@ def leg_extension(eq, var, hil):
 
 
 # ============================================================================================================ LEG CURL
-@pattern("leg_curl", used=("seated", "standing", "lying", "single_arm"),
+def _nordic(eq, var, hil):
+    """Nordic curl / glute-ham raise: ankles held, body in one line, lowering forward from the knees."""
+    ank = (0, -5.5)
+    knee = (70.0, -5.5)
+    ghd = eq in ("bench", "machine")
+    def pose(th):
+        hip = add(knee, vup(th, L["thigh"]))
+        sh = _sh_of(hip, th)
+        if th < 10:
+            hand = torso_pt(hip, th, 14, 14)
+        else:
+            hand = (sh[0] + 22, FLOOR - 9)
+        return body(ankle=ank, shin=90, thigh=th, torso=th, head=th - 8, foot=90, hand=hand, elbow_side=1)
+    A, B = pose(0), pose(68)
+
+    def hold(d, T, P, s):
+        wrect(d, T, s, -22, -17, 20, -2, 3, PAD)       # pad over the ankles
+        wrect(d, T, s, -14, -2, -6, FLOOR, 1, METAL_D)
+        if ghd:
+            wrect(d, T, s, 48, -34, 92, -22, 4, PAD)   # knee / thigh pad
+            wrect(d, T, s, 66, -22, 74, FLOOR - 4, 1, METAL_D)
+            wrect(d, T, s, 40, FLOOR - 5, 100, FLOOR, 2, METAL_D)
+    scene = Gear(back=hold, bounds=(-30, -40, 100, FLOOR))
+    return spec([A, B], None, gear(mat(-60, 150, 4), scene) if not ghd else scene, hil)
+
+
+def _bridge_curl(eq, var, hil):
+    """Supine hamstring curl with the hips lifted: the heel slides in and out."""
+    sx, sh_y = -150.0, FLOOR - 4 - 15
+    hip = (-70.0, FLOOR - 4 - 60)
+    dx, dy = sx - hip[0], sh_y - hip[1]
+    t = math.degrees(math.atan2(dx, -dy))
+    h2 = (sx - vup(t, L["torso"])[0], sh_y - vup(t, L["torso"])[1])
+    kw = dict(hip=h2, torso=t, head=-90, hand=(sx + 100, FLOOR - 9), elbow_side=1)
+    A = body(ankle=(-14, FLOOR - 4 - 1), foot=0, **kw)
+    B = body(ankle=(h2[0] + 140, FLOOR - 4 - 1), foot=-35, **kw)
+    return spec([A, B], None, mat(-250, 130, 4), hil)
+
+
+@pattern("leg_curl", used=("seated", "standing", "lying", "single_arm", "bodyweight"),
          demos=[("machine", [], "hamstrings"), ("machine", ["seated"], "hamstrings"),
                 ("none", ["standing"], "hamstrings"), ("cable", ["standing"], "hamstrings")])
 def leg_curl(eq, var, hil):
+    if has(var, "bodyweight") and not has(var, "standing", "seated") and eq in ("none", "mat", "bench", "machine"):
+        if has(var, "lying") or has(var, "single_arm"):
+            return _bridge_curl(eq, var, hil)
+        return _nordic(eq, var, hil)
     if has(var, "standing") and not has(var, "lying", "seated"):
         hip = (0, -145.5)
         kw = dict(hip=hip, thigh=0, torso=2, hand=(50, -150), elbow_side=1, b_thigh=0, b_shin=0, b_foot=0)
@@ -339,10 +458,22 @@ def leg_curl(eq, var, hil):
 
 
 # ============================================================================================================ CALF RAISE
-@pattern("calf_raise", used=("seated", "standing", "single_arm", "bodyweight"),
+def _tibialis(eq, var, hil):
+    """Tibialis raise: back against a wall, heels on the floor, toes lift towards the shins."""
+    kwb = dict(hand_t=(80, 6), elbow_side=1)
+    A = body(ankle=(0, 0), hip=(-14, -145), torso=-4, foot=2, **kwb)
+    B = body(ankle=(0, 0), hip=(-14, -145), torso=-4, foot=-40, **kwb)
+    wall = Gear(back=lambda d, T, P, s: wrect(d, T, s, -38, -320, -30, FLOOR, 1, (206, 212, 226)),
+                bounds=(-60, -300, 60, FLOOR))
+    return spec([A, B], None, wall, hil)
+
+
+@pattern("calf_raise", used=("seated", "standing", "single_arm", "bodyweight", "reverse"),
          demos=[("none", [], "calves"), ("dumbbell", [], "calves"), ("barbell", [], "calves"),
                 ("machine", [], "calves"), ("machine", ["seated"], "calves")])
 def calf_raise(eq, var, hil):
+    if has(var, "reverse", "tibialis"):
+        return _tibialis(eq, var, hil)
     step_h = 12.0
     toe_y = FLOOR - step_h - 5.4
     foot_len = L["foot"]
@@ -414,9 +545,29 @@ def calf_raise(eq, var, hil):
 
 
 # ============================================================================================================ HIP THRUST
-@pattern("hip_thrust", used=("bodyweight", "single_arm", "lying"),
+def _kickback(eq, var, hil):
+    """Standing glute kickback (cable / machine / bodyweight): torso leaned on a support, the working leg extends back."""
+    hip = (-6.0, -141.0)
+    torso = 28
+    sh = _sh_of(hip, torso)
+    sup = (sh[0] + 52, sh[1] + 16)
+    kw = dict(ankle=(0, 0), hip=hip, torso=torso, hand=sup, elbow_side=1, back_side=1)
+    A = body(back=(-22.0, -7.0), b_foot=10, **kw)
+    B = body(back=(-118.0, -62.0), b_foot=-35, **kw)
+    equip = None
+    scene = post(sup[0] + 6, sup[1] - 10, FLOOR, w=8)
+    if eq == "cable":
+        equip = cable_station((104, -14), "ankle2", handle="strap", face=1)
+    elif eq == "band":
+        equip = band((110, FLOOR - 3), "ankle2")
+    return spec([A, B], equip, scene, hil)
+
+
+@pattern("hip_thrust", used=("bodyweight", "single_arm", "lying", "standing"),
          demos=[("barbell", [], "glutes"), ("dumbbell", [], "glutes"), ("none", [], "glutes"), ("machine", [], "glutes")])
 def hip_thrust(eq, var, hil):
+    if has(var, "standing") and eq in ("cable", "machine", "none", "band"):
+        return _kickback(eq, var, hil)
     on_mat = eq in ("none", "mat", "band") or has(var, "bodyweight")
     sh_y = FLOOR - 4 - 15 if on_mat else -80
     ankle = (0, -4 if on_mat else 0)
@@ -543,7 +694,7 @@ def lever_to_wrist(pivot, w=5.0, grip=True):
 
 
 # ============================================================================================================ BENCH PRESS
-@pattern("bench_press", used=("incline", "decline", "single_arm", "seated", "standing", "lying"),
+@pattern("bench_press", used=("incline", "decline", "single_arm", "seated", "standing", "lying", "narrow", "reverse"),
          demos=[("barbell", [], "chest"), ("barbell", ["incline"], "chest"), ("barbell", ["decline"], "chest"),
                 ("dumbbell", [], "chest"), ("dumbbell", ["incline"], "chest"), ("machine", [], "chest"),
                 ("cable", [], "chest"), ("band", [], "chest")])
@@ -584,16 +735,22 @@ def bench_press(eq, var, hil):
         torso = -90
     hip = (-102, -92 if dec else -76)
     sh = add(hip, vup(torso, L["torso"]))
+    tucked = has(var, "narrow", "reverse")
+    # arms are drawn foreshortened (elbows flare towards the viewer), so the elbow never hangs through the pad
+    er_low = (16, 12) if tucked else (24, 5)
     if eq == "dumbbell":
-        low = dict(hand_t=(26, 16), elbow_side=1)
         equip = dumbbell("wrist", size=1.2)
-        up = dict(hand_rel=(4, -102), elbow_side=1)
+        he_low = (10, -26) if not tucked else (6, -30)
     else:
-        low = dict(hand_t=(34, 18), elbow_side=1)
         equip = barbell("wrist", plate=22)
-        up = dict(hand_rel=(4, -102), elbow_side=1)
-    A = body(hip=hip, torso=torso, head=torso, **up)
-    B = body(hip=hip, torso=torso, head=torso, **low)
+        he_low = (8, -28) if not tucked else (4, -32)
+    nrm_t = (math.cos(math.radians(torso)), math.sin(math.radians(torso)))
+    up_dir = unit((4, -102))
+    up = dict(elbow_rel=(up_dir[0] * L["uarm"], up_dir[1] * L["uarm"]), hand_e=(up_dir[0] * L["farm"], up_dir[1] * L["farm"]))
+    low = dict(elbow_rel=add(mul(vup(torso, 1.0), -0.0), er_low) if torso == -90 else er_low, hand_e=he_low)
+    ank = (-14, 0) if dec else (-34, 0)
+    A = body(ankle=ank, hip=hip, torso=torso, head=torso, **up)
+    B = body(ankle=ank, hip=hip, torso=torso, head=torso, **low)
     scene = pad_bench(hip, torso)
     if eq != "dumbbell":
         scene = gear(scene, rack_posts(sh[0] - 46, sh[1] - 92))
@@ -648,7 +805,7 @@ def chest_fly(eq, var, hil):
 
 
 # ============================================================================================================ PUSH-UP
-@pattern("pushup", used=("incline", "decline", "kneeling", "narrow", "wide", "bodyweight"),
+@pattern("pushup", used=("incline", "decline", "kneeling", "narrow", "wide", "bodyweight", "alternating"),
          demos=[("none", [], "chest"), ("none", ["incline"], "chest"), ("bench", [], "chest"),
                 ("none", ["decline"], "chest"), ("none", ["kneeling"], "chest"), ("swiss_ball", [], "chest")])
 def pushup(eq, var, hil):
@@ -809,31 +966,25 @@ def rear_delt_fly(eq, var, hil):
         else:
             equip = band((112, sh[1] - 4), "wrist")
         return spec([A, B], equip, None, hil)
-    if has(var, "lying", "incline", "prone"):
-        # chest supported on an inclined pad (prone): arms hang, then rise sideways (they shrink up to the shoulder)
-        hip = (-34, -140)
-        torso = 50
-        nrm = (math.cos(math.radians(torso)), math.sin(math.radians(torso)))
-        t = vup(torso)
-        sh_ = add(hip, vup(torso, L["torso"]))
-        p0 = add(add(hip, mul(t, 18)), mul(nrm, 22))
-        p1 = add(add(hip, mul(t, L["torso"] + 6)), mul(nrm, 22))
-
-        def padgear(d, T, P, s):
-            wline(d, T, s, (p1[0] + 10, p1[1] + 6), (p1[0] + 10, FLOOR - 4), 5.5, METAL_D)
-            wline(d, T, s, (p0[0] + 8, p0[1] + 4), (p0[0] + 8, FLOOR - 4), 5.5, METAL_D)
-            wrect(d, T, s, p0[0] - 14, FLOOR - 5, p1[0] + 28, FLOOR, 2, METAL_D)
-            wcap(d, T, s, p0, p1, 6.5, 6.5, PAD)
-        A = body(hip=hip, torso=torso, head=34, elbow_rel=(0, 53), hand_e=(2, 51))
-        B = body(hip=hip, torso=torso, head=34, elbow_rel=(-2, 10), hand_e=(-4, 7))
-        eq_g = dumbbell("wrist", size=1.2) if eq != "none" else None
-        return spec([A, B], eq_g, Gear(back=padgear, bounds=(p0[0] - 14, p1[1] - 10, p1[0] + 30, FLOOR)), hil)
-    # bent-over dumbbell: arms hang down, then rise sideways (seen from the side they shrink up to the shoulder)
-    hip = (-62, -110)
-    torso = 62
-    A = body(hip=hip, torso=torso, elbow_rel=(0, 50), hand_e=(2, 50))
-    B = body(hip=hip, torso=torso, elbow_rel=(-2, 10), hand_e=(-4, 7))
-    return spec([A, B], dumbbell("wrist", size=1.2) if eq != "none" else None, None, hil)
+    # bent over (or chest on an incline pad), seen from the FRONT so the arm travel to the sides stays visible:
+    # arms hang down, then rise out to the sides to shoulder height
+    prone = has(var, "lying", "incline", "prone")
+    pel = (0, -128 if not prone else -112)
+    lean = 0.5 if not prone else 0.42
+    common = dict(pelvis=pel, lean=lean, leg_l=(5, 12), leg_r=(5, 12), sc_thigh=(0.8, 0.8), foot_out=10, head=0, back=True, head_drop=0.5)
+    A = fpose(arm_l=(2, 4), arm_r=(2, 4), **common)
+    B = fpose(arm_l=(84, 78), arm_r=(84, 78), **common)
+    equip = front_dumbbells(1.1) if eq in ("dumbbell", "kettlebell") else None
+    scene = None
+    if prone:
+        def pad(d, T, P, s):
+            px, py = pel
+            wrect(d, T, s, px - 28, py - 64, px + 28, py + 6, 8, BENCHC)
+            wrect(d, T, s, px - 23, py - 59, px + 23, py + 1, 6, (136, 144, 166))
+            wrect(d, T, s, px - 3, py + 6, px + 3, FLOOR - 4, 1, METAL_D)
+            wrect(d, T, s, px - 24, FLOOR - 5, px + 24, FLOOR, 2, METAL_D)
+        scene = Gear(back=pad, bounds=(pel[0] - 30, pel[1] - 66, pel[0] + 30, FLOOR))
+    return spec([A, B], equip, scene, hil)
 
 
 # ============================================================================================================ TRICEPS EXTENSION

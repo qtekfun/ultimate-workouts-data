@@ -214,8 +214,26 @@ def torso_pt(hip, torso, along, out):
     return (sh[0] - t[0] * along + n[0] * out, sh[1] - t[1] * along + n[1] * out)
 
 
+def _abs_hand(sp):
+    """Express a relative hand target (hand_t / hand_rel) as an absolute one so it can blend with another kind."""
+    if "hip" in sp and "torso" in sp:
+        if "hand_t" in sp:
+            sp = dict(sp)
+            ht = sp.pop("hand_t")
+            sp["hand"] = torso_pt(sp["hip"], sp["torso"], ht[0], ht[1])
+        elif "hand_rel" in sp:
+            sp = dict(sp)
+            sh = add(sp["hip"], vup(sp["torso"], L["torso"]))
+            sp["hand"] = add(sh, sp.pop("hand_rel"))
+    return sp
+
+
 def lerp_pose(a, b, t):
     if "_spec" in a and "_spec" in b:
+        sa, sb = a["_spec"], b["_spec"]
+        kinds = lambda d: tuple(k for k in ("hand", "hand_t", "hand_rel") if k in d)
+        if kinds(sa) != kinds(sb) and kinds(sa) and kinds(sb):
+            a, b = dict(a, _spec=_abs_hand(sa)), dict(b, _spec=_abs_hand(sb))
         sp = {}
         for k, va in a["_spec"].items():
             vb = b["_spec"].get(k, va)
@@ -872,7 +890,8 @@ def fbuild(p):
     P["neck"] = W(0, -FRONT["torso"] * lean)
     hd = p.get("head", 0.0)
     hr = math.radians(hd)
-    P["head"] = W(math.sin(hr) * (FRONT["neck"] + L["head"]), -FRONT["torso"] * lean - math.cos(hr) * (FRONT["neck"] + L["head"]))
+    hdist = (FRONT["neck"] + L["head"]) * (1.0 - p.get("head_drop", 0.0))
+    P["head"] = W(math.sin(hr) * hdist, -FRONT["torso"] * lean - math.cos(hr) * hdist)
     shy = -FRONT["torso"] * lean + 6
     for side, sg in (("l", -1), ("r", 1)):
         a1, a2 = p["arm_" + side]
@@ -924,37 +943,79 @@ def fdraw(P, p, hilite, equipment, scene, view, size=W, floor=True):
         return (vx * c - vy * s_, vx * s_ + vy * c)
 
     # legs
+    sole = (92, 102, 130)
     for side in ("l", "r"):
-        capsule(d, T(P["toe_" + side]), T(P["an_" + side]), 5.2 * k, 6.0 * k, (92, 102, 130))
-        capsule(d, T(P["toe_" + side]), T(P["an_" + side]), 3.9 * k, 4.8 * k, SHOE)
+        sg = -1 if side == "l" else 1
         cap("an_" + side, "kn_" + side, 6.2, 8.4, SKIN)
         cap("kn_" + side, "hp_" + side, 8.8, 11.5, SHORTS)
-    # torso: trapezoid-ish capsule, wider at the shoulders
+        # shoe seen from the front: rounded toe box with a sole, pointing slightly outwards
+        ax, ay = T(P["an_" + side])
+        o = loc(sg * 4.0, 5.0)
+        capsule(d, (ax + loc(0, 2)[0] * k, ay + loc(0, 2)[1] * k), (ax + o[0] * k, ay + o[1] * k), 7.4 * k, 8.0 * k, sole)
+        capsule(d, (ax + loc(0, 1)[0] * k, ay + loc(0, 1)[1] * k), (ax + (o[0] - 0.2) * k, ay + (o[1] - 1.2) * k), 6.0 * k, 6.6 * k, SHOE)
+        capsule(d, T(P["an_" + side]), (ax + loc(0, -2)[0] * k, ay + loc(0, -2)[1] * k), 3.4 * k, 3.4 * k, SKIN)
+        t_ = T(P["toe_" + side])
+        d.line([ax + loc(sg * 1.5, 9.5)[0] * k, ay + loc(sg * 1.5, 9.5)[1] * k, ax + loc(sg * 7.0, 9.0)[0] * k, ay + loc(sg * 7.0, 9.0)[1] * k], fill=sole, width=int(1.4 * k))
+    # shorts block + torso with a waist (wider at the shoulders)
     a, b = P["pelvis"], P["neck"]
-    capsule(d, T(a), T(b), 17 * k, 22 * k, SHIRT)
+    lean_ = p.get("lean", 1.0)
+    tl_ = FRONT["torso"] * lean_
+    q0 = T(P["pelvis"])
+
+    def lp(x, y):
+        w = loc(x, y)
+        return (q0[0] + w[0] * k, q0[1] + w[1] * k)
+    capsule(d, lp(-8, 2), lp(8, 2), 14.5 * k, 14.5 * k, SHORTS)
+    torso_pts = [(-23, -tl_ + 3), (-17.5, -tl_ * 0.55), (-14.5, -tl_ * 0.24), (-15.5, -9), (15.5, -9), (14.5, -tl_ * 0.24),
+                 (17.5, -tl_ * 0.55), (23, -tl_ + 3), (12, -tl_ - 1), (-12, -tl_ - 1)]
+    d.polygon([lp(x, y) for x, y in torso_pts], fill=SHIRT)
+    for sg2 in (-1, 1):
+        cx_, cy_ = lp(sg2 * 20.5, -tl_ + 6)
+        d.ellipse([cx_ - 9.5 * k, cy_ - 9.5 * k, cx_ + 9.5 * k, cy_ + 9.5 * k], fill=SHIRT)
+    # collar + hem shading
+    d.line([lp(-14.5, -9), lp(14.5, -9)], fill=(38, 80, 182), width=int(1.6 * k))
     up = loc(0, -1)
     nk = (P["neck"][0] + up[0] * 12, P["neck"][1] + up[1] * 12)
-    capsule(d, T(nk), T(P["head"]), 5 * k, 5 * k, SKIN)
+    capsule(d, T(P["neck"]), T(P["head"]), 5.6 * k, 5.2 * k, SKIN)
     hx, hy = T(P["head"])
     r_ = L["head"] * k
+    rt = loc(1, 0)
+    for sg in (-1, 1):  # ears
+        ex = hx + rt[0] * sg * (L["head"] - 0.5) * k
+        ey = hy + rt[1] * sg * (L["head"] - 0.5) * k
+        d.ellipse([ex - 3 * k, ey - 3.6 * k, ex + 3 * k, ey + 3.6 * k], fill=SKIN_FAR)
     d.ellipse([hx - r_, hy - r_, hx + r_, hy + r_], fill=SKIN)
     hr = math.radians(p.get("head", 0.0))
     upv = (up[0] * math.cos(hr) - up[1] * math.sin(hr), up[0] * math.sin(hr) + up[1] * math.cos(hr))
     ang = math.degrees(math.atan2(upv[1], upv[0]))
-    d.pieslice([hx - r_, hy - r_, hx + r_, hy + r_], ang - 80, ang + 80, fill=HAIR)
-    rt = loc(1, 0)
-    for sg in (-1, 1):
-        ex = hx + (rt[0] * sg * 5.8 - upv[0] * 3.5) * k
-        ey = hy + (rt[1] * sg * 5.8 - upv[1] * 3.5) * k
-        er = 1.9 * k
+    if p.get("back"):
+        d.ellipse([hx - r_, hy - r_, hx + r_, hy + r_], fill=HAIR)
+    else:
+        d.pieslice([hx - r_, hy - r_, hx + r_, hy + r_], ang - 80, ang + 80, fill=HAIR)
+    for sg in (-1, 1) if not p.get("back") else ():
+        ex = hx + (rt[0] * sg * 5.8 - upv[0] * 2.5) * k
+        ey = hy + (rt[1] * sg * 5.8 - upv[1] * 2.5) * k
+        er = 2.0 * k
         d.ellipse([ex - er, ey - er, ex + er, ey + er], fill=(30, 30, 40))
+        bx0, by0 = hx + (rt[0] * sg * 3.6 - upv[0] * 0.3) * k, hy + (rt[1] * sg * 3.6 - upv[1] * 0.3) * k
+        bx1, by1 = hx + (rt[0] * sg * 8.2 - upv[0] * 0.9) * k, hy + (rt[1] * sg * 8.2 - upv[1] * 0.9) * k
+        d.line([bx0, by0, bx1, by1], fill=HAIR, width=int(1.5 * k))
+    nx_, ny_ = hx - (upv[0] * 3.6) * k, hy - (upv[1] * 3.6) * k
+    if not p.get("back"):
+        d.ellipse([nx_ - 1.3 * k, ny_ - 1.0 * k, nx_ + 1.3 * k, ny_ + 1.6 * k], fill=SKIN_FAR)
+    m0 = (hx - rt[0] * 3.4 * k + upv[0] * 7.4 * k * -1, hy - rt[1] * 3.4 * k - upv[1] * 7.4 * k)
+    m1 = (hx + rt[0] * 3.4 * k - upv[0] * 7.4 * k, hy + rt[1] * 3.4 * k - upv[1] * 7.4 * k)
+    if not p.get("back"):
+        d.line([m0, m1], fill=(168, 104, 92), width=int(1.3 * k))
+    if p.get("back"):  # spine line on the shirt
+        d.line([lp(0, -tl_ + 2), lp(0, -12)], fill=(38, 80, 182), width=int(1.4 * k))
     # highlight
     if hilite:
         ov = Image.new("RGBA", img.size, (0, 0, 0, 0))
         od = ImageDraw.Draw(ov, "RGBA")
         mask = Image.new("L", img.size, 0)
         md = ImageDraw.Draw(mask)
-        capsule(md, T(a), T(b), 17 * k, 22 * k, 255)
+        md.polygon([lp(x, y) for x, y in torso_pts], fill=255)
 
         def blob(local, rx, ry, col=HILITE):
             q = T(P["pelvis"])
@@ -1184,7 +1245,7 @@ def animate(pa, pb, rotation=0.0, hilite=None, equipment=None, hands_floor=False
 def save_webp(imgs, durs, path, max_kb=45):
     """Save an animated webp trying a few qualities until it is below max_kb (decimal KB); returns size in bytes."""
     best = None
-    for q, m in ((80, 6), (70, 6), (60, 6), (50, 6), (40, 6), (30, 6)):
+    for q, m in ((80, 6), (70, 6), (60, 6), (50, 6), (40, 6), (30, 6), (22, 6), (14, 6)):
         imgs[0].save(path, save_all=True, append_images=imgs[1:], duration=durs, loop=0, quality=q, method=m)
         import os
         sz = os.path.getsize(path)

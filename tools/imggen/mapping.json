@@ -1,49 +1,52 @@
 {
  "0027b172-a83e-4f79-af47-483302a22c02": {
-  "pattern": "pullup",
+  "pattern": "p_barskill",
   "equipment": "bar",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.6,
-  "why": "muscle-up approximated by its pull-up phase"
+  "variants": [
+   "muscle_up"
+  ],
+  "confidence": 0.9,
+  "why": "muscle-up"
  },
  "002c6a4f-28ac-4b07-8e94-053e5b05d52b": {
-  "pattern": "step_up",
+  "pattern": "q_boxjump",
   "equipment": "box",
-  "hilite": "quads",
-  "variants": [
-   "bodyweight"
-  ],
-  "confidence": 0.6,
-  "why": "jump onto box shown as step-up onto box"
+  "hilite": "glutes",
+  "variants": [],
+  "confidence": 0.7,
+  "why": "jump onto a box, stand tall, step down"
  },
  "00eae665-ff78-4373-9c43-f44a4a1b43e0": {
-  "pattern": "none",
+  "pattern": "planche",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "frog stand is a balance hold"
+  "variants": [
+   "frog"
+  ],
+  "confidence": 0.7,
+  "why": "Frog stand: crow-like balance, knees on the upper arms, feet off the floor"
  },
  "00ecb956-9483-4d08-a9b1-6a236d4d8ff3": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "circle",
+   "ccw"
   ],
-  "confidence": 0.45,
-  "why": "neck circle approximated by standing mobility pose"
+  "confidence": 0.8,
+  "why": "neck circles"
  },
  "00f4a2b1-b1ac-49e6-a657-1d27e46522fd": {
-  "pattern": "back_extension",
+  "pattern": "p_quad",
   "equipment": "none",
-  "hilite": "back",
+  "hilite": "hamstrings",
   "variants": [
-   "bodyweight"
+   "bird_dog"
   ],
-  "confidence": 0.6,
-  "why": "quadruped superman approximated by back extension"
+  "confidence": 0.9,
+  "why": "kneeling superman = opposite arm and leg lift on all fours"
  },
  "00fcf603-b0d0-48d2-9b5e-c7f0d510d46c": {
   "pattern": "seated_row",
@@ -73,12 +76,14 @@
   "why": "upright row with dumbbells"
  },
  "026d2939-9156-408b-bf11-21cfa8278851": {
-  "pattern": "leg_raise",
+  "pattern": "p_wiper",
   "equipment": "bar",
   "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "windshield wiper approximated by hanging leg raise"
+  "variants": [
+   "hanging"
+  ],
+  "confidence": 0.9,
+  "why": "hanging windshield wipers"
  },
  "0285f198-36d5-4a77-bb76-5f72e1a4d6c9": {
   "pattern": "rear_delt_fly",
@@ -139,11 +144,10 @@
   "equipment": "none",
   "hilite": "quads",
   "variants": [
-   "reverse",
    "bodyweight"
   ],
   "confidence": 0.5,
-  "why": "unclear squat variant"
+  "why": "unclear name; plain bodyweight squat"
  },
  "04365177-e078-489b-983a-8ac61b7346f1": {
   "pattern": "hammer_curl",
@@ -154,12 +158,12 @@
   "why": "cable hammer curl"
  },
  "046b1e8f-4a11-4579-84d1-ac2833b8ed83": {
-  "pattern": "none",
+  "pattern": "radio_taiso",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "Japanese calisthenics routine, no single pattern"
+  "confidence": 0.8,
+  "why": "y"
  },
  "046fce45-69f2-46f7-a5b6-79a25a485af1": {
   "pattern": "leg_extension",
@@ -173,12 +177,14 @@
   "why": "single-leg extension machine"
  },
  "04931134-da5d-4d87-8e62-bdcc0d970b0c": {
-  "pattern": "pullup",
+  "pattern": "p_barskill",
   "equipment": "bar",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.4,
-  "why": "active hang is the start position of a pull-up"
+  "variants": [
+   "active_hang"
+  ],
+  "confidence": 0.9,
+  "why": "active (scapular) hang"
  },
  "04ba9a37-4725-43f0-a0b6-767cdab9a79e": {
   "pattern": "calf_raise",
@@ -201,14 +207,14 @@
   "why": "barbell lunge"
  },
  "04e7fd92-e2e5-4212-ad7c-7542e98f7d83": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "tuck"
   ],
-  "confidence": 0.4,
-  "why": "chin tuck mobility, approximated"
+  "confidence": 0.8,
+  "why": "chin tuck profile"
  },
  "05853a58-4426-450c-9b06-bfa461a767bf": {
   "pattern": "shrug",
@@ -219,12 +225,14 @@
   "why": "cable shrug"
  },
  "05b36227-a331-45b8-b1d5-5c7293c2df17": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
   "hilite": "calves",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller self-massage"
+  "variants": [
+   "calves"
+  ],
+  "confidence": 0.8,
+  "why": "roller under calves"
  },
  "065ff3ca-a9e8-4339-997e-d65556d9ebf3": {
   "pattern": "lateral_raise",
@@ -243,12 +251,14 @@
   "why": "cable curl behind body"
  },
  "069711c7-565a-4abb-90a7-614f66dd9dc3": {
-  "pattern": "plank",
-  "equipment": "band",
+  "pattern": "p_rollout",
+  "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "TRX roll-out approximated by plank"
+  "variants": [
+   "trx"
+  ],
+  "confidence": 0.9,
+  "why": "suspended rollout"
  },
  "06cb77ba-e56d-4422-bc14-77cc367c9fd8": {
   "pattern": "squat",
@@ -293,12 +303,14 @@
   "why": "cable triceps extension"
  },
  "0829749c-de42-49a5-a24b-451b0eac8627": {
-  "pattern": "none",
+  "pattern": "punches",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "boxing, no pattern"
+  "variants": [
+   "bag"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "083bc8a6-0eb4-4049-b2ef-88415aa15459": {
   "pattern": "shoulder_press",
@@ -420,30 +432,32 @@
   "why": "hip flexor stretch"
  },
  "0d245efd-7d9a-4518-be17-cce14adae88a": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "neck_flexion",
+  "equipment": "bench",
   "hilite": "traps",
   "variants": [],
-  "confidence": 0.0,
-  "why": "weighted neck flexion, no sensible pattern"
+  "confidence": 0.8,
+  "why": "supine on bench, head off the end, plate on forehead"
  },
  "0d50ce1e-1731-40e8-82e0-c8f512d0a8c9": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "cars"
   ],
-  "confidence": 0.4,
-  "why": "neck CARs mobility"
+  "confidence": 0.8,
+  "why": "large slow neck circle"
  },
  "0d68029a-f025-41fe-9c56-6ccbc32bc43d": {
-  "pattern": "none",
+  "pattern": "handstand",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "wall handstand push-up, inverted"
+  "variants": [
+   "wall"
+  ],
+  "confidence": 0.7,
+  "why": "chest-to-wall handstand, walk-up shown"
  },
  "0d79f259-3b28-4258-8a08-cffec062a710": {
   "pattern": "calf_raise",
@@ -472,20 +486,22 @@
   "why": "triceps pushdown"
  },
  "0e8fd83f-4e97-4749-b5fd-da9d0e85e97a": {
-  "pattern": "none",
+  "pattern": "pelvic_tilt",
   "equipment": "none",
   "hilite": "abs",
   "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic tilt micro-movement"
+  "confidence": 0.8,
+  "why": "posterior tilt flattens lumbar gap"
  },
  "0ecd5f3a-f156-4f1b-b29e-16fb80802a50": {
-  "pattern": "none",
+  "pattern": "hang",
   "equipment": "none",
   "hilite": "forearms",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "fingerboard hang"
+  "variants": [
+   "fingerboard"
+  ],
+  "confidence": 0.7,
+  "why": "hang from a 20 mm edge on a wall-mounted board"
  },
  "0ecfec6f-5d0f-4e8a-8d37-f6203a8923b8": {
   "pattern": "seated_row",
@@ -579,12 +595,14 @@
   "why": "plank with reach"
  },
  "127033e0-46c5-44a6-825b-fbecfe60ed9a": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "snatch is an olympic lift, not covered"
+  "variants": [
+   "snatch"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "12a80404-8684-4ff0-a473-d80b4ad8cd5e": {
   "pattern": "back_extension",
@@ -644,23 +662,27 @@
   "why": "shoulder press on multi press"
  },
  "142fcef5-63a7-4d30-81e4-bc9d7073fe99": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [
-   "lying",
-   "bodyweight"
+   "Y",
+   "T",
+   "W"
   ],
-  "confidence": 0.4,
-  "why": "YTW raises approximated by rear delt fly"
+  "confidence": 0.9,
+  "why": "prone Y-T-W raises"
  },
  "148f2ffc-05e2-486b-874f-2a401337a1c6": {
-  "pattern": "pulldown",
+  "pattern": "p_pullover",
   "equipment": "cable",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.6,
-  "why": "rope pullover approximated by straight-arm pulldown"
+  "variants": [
+   "cable",
+   "incline"
+  ],
+  "confidence": 0.9,
+  "why": "straight-arm rope pullover on an incline bench"
  },
  "14cea0e7-2e7c-4d35-bfec-2f2f90209e02": {
   "pattern": "stretch_standing",
@@ -691,12 +713,14 @@
   "why": "box squat"
  },
  "1544c78d-fe6d-423d-876e-0ba1998063c6": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swimming"
+  "variants": [
+   "freestyle"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "15cfef4a-471f-4a00-a3c3-973b15bd7cda": {
   "pattern": "lunge",
@@ -725,38 +749,40 @@
   "why": "pull-up neutral grip, bar"
  },
  "16089e03-5afc-4a18-a40a-beb337806ac0": {
-  "pattern": "none",
+  "pattern": "l_sit",
   "equipment": "none",
   "hilite": "abs",
   "variants": [],
-  "confidence": 0.0,
-  "why": "isometric hold"
+  "confidence": 0.7,
+  "why": "L hold = L-sit on parallettes"
  },
  "16202754-f567-4d23-a866-2c9cc8eba71d": {
-  "pattern": "none",
+  "pattern": "l_sit",
   "equipment": "none",
   "hilite": "abs",
   "variants": [],
-  "confidence": 0.0,
-  "why": "isometric hold"
+  "confidence": 0.7,
+  "why": "L-sit on parallettes"
  },
  "1639425c-7dc6-4776-b039-47ef14a328ee": {
-  "pattern": "pullup",
+  "pattern": "p_bodyrow",
   "equipment": "bar",
   "hilite": "lats",
   "variants": [
-   "reverse"
+   "bar"
   ],
-  "confidence": 0.6,
-  "why": "inverted-grip lat pulldown on bar"
+  "confidence": 0.9,
+  "why": "inverted row under a bar"
  },
  "164a31e9-ce70-4339-aee5-4ea7a3bdd246": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "variants": [
+   "glutes"
+  ],
+  "confidence": 0.8,
+  "why": "seated on roller"
  },
  "164b83aa-195e-4eed-b820-b81df950d9bb": {
   "pattern": "stretch_lying",
@@ -769,12 +795,14 @@
   "why": "open book thoracic rotation"
  },
  "165a79bc-f4bc-4439-a0ed-6a77cd71f5e6": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
-  "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "hilite": null,
+  "variants": [
+   "adductors"
+  ],
+  "confidence": 0.8,
+  "why": "prone, bent leg over roller"
  },
  "169896b2-90e3-4497-9d73-56bee4a34697": {
   "pattern": "seated_row",
@@ -788,15 +816,15 @@
   "why": "standing cable row"
  },
  "16bd91ca-a9fe-47fc-b3a8-a9d70549e929": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "dumbbell",
   "hilite": "shoulders",
   "variants": [
    "incline",
-   "lying"
+   "Y"
   ],
-  "confidence": 0.5,
-  "why": "prone Y raise approximated"
+  "confidence": 0.9,
+  "why": "incline bench Y raise"
  },
  "17593b54-1e4e-49d7-8f9f-3a706823a4c5": {
   "pattern": "hip_thrust",
@@ -866,12 +894,12 @@
   "why": "wide push-up"
  },
  "18a02b91-fb98-462b-aff1-05c982f151d4": {
-  "pattern": "none",
+  "pattern": "pelvic_floor",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": null,
   "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic floor, no visible movement"
+  "confidence": 0.8,
+  "why": "slow squeeze with pulsing ring"
  },
  "18d277a0-7222-46e7-b2bf-47c8ed169c30": {
   "pattern": "burpee",
@@ -906,19 +934,18 @@
   "variants": [
    "standing"
   ],
-  "confidence": 0.45,
-  "why": "cable glute extension approximated"
+  "confidence": 0.8,
+  "why": "standing cable glute kickback"
  },
  "19d10f51-3e53-4d8f-b283-1d8d9a7d3543": {
-  "pattern": "leg_raise",
+  "pattern": "p_wiper",
   "equipment": "none",
   "hilite": "abs",
   "variants": [
-   "lying",
-   "bodyweight"
+   "wheel"
   ],
-  "confidence": 0.5,
-  "why": "leg circles approximated by leg raise"
+  "confidence": 0.9,
+  "why": "lying leg wheel / leg circles"
  },
  "19fba43a-8363-4da3-82c6-d8a14628b5e7": {
   "pattern": "curl",
@@ -931,14 +958,14 @@
   "why": "seated dumbbell curl"
  },
  "1a40cc23-4609-4951-9b76-237715ae85ed": {
-  "pattern": "stretch_standing",
+  "pattern": "shoulder_roll",
   "equipment": "none",
-  "hilite": "shoulders",
+  "hilite": "traps",
   "variants": [
-   "standing"
+   "backward"
   ],
-  "confidence": 0.4,
-  "why": "shoulder rotation"
+  "confidence": 0.8,
+  "why": "shoulder rolls"
  },
  "1ae6a28d-10e7-4ecf-af4f-905f8193e2c6": {
   "pattern": "curl",
@@ -957,14 +984,14 @@
   "why": "kettlebell swing"
  },
  "1b140999-e1fa-49b5-9f2b-690bac959db3": {
-  "pattern": "stretch_standing",
+  "pattern": "twist_stand",
   "equipment": "none",
   "hilite": "obliques",
   "variants": [
-   "standing"
+   "front"
   ],
-  "confidence": 0.45,
-  "why": "core rotation"
+  "confidence": 0.8,
+  "why": "core rotation arms forward"
  },
  "1b329beb-fcda-4471-ba70-eea62da410dd": {
   "pattern": "squat",
@@ -1003,20 +1030,24 @@
   "why": "butterfly sit-up"
  },
  "1c17c370-dd74-46c4-b4f2-039c510af058": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
-  "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swim drill"
+  "hilite": "obliques",
+  "variants": [
+   "roll"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "1d1a53dd-e00f-477e-83f7-09c8ef9a71cd": {
-  "pattern": "none",
+  "pattern": "lever",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "elbow lever hold"
+  "variants": [
+   "elbow"
+  ],
+  "confidence": 0.7,
+  "why": "elbow lever, elbows in the abdomen"
  },
  "1d610575-eed0-42cf-8737-29788a372af6": {
   "pattern": "squat",
@@ -1109,40 +1140,44 @@
   "why": "neutral-grip pull-up"
  },
  "1fae7d45-0731-4640-8809-94c76b836571": {
-  "pattern": "stretch_standing",
+  "pattern": "leg_swing_r",
   "equipment": "none",
   "hilite": "hamstrings",
   "variants": [
-   "standing"
+   "fb"
   ],
-  "confidence": 0.4,
-  "why": "leg swings, dynamic mobility"
+  "confidence": 0.8,
+  "why": "front-back leg swing"
  },
  "1fe103e2-1def-41de-8eab-e2e11296446d": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
-  "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "hilite": "back",
+  "variants": [
+   "upper_back"
+  ],
+  "confidence": 0.8,
+  "why": "thoracic roll, generic Blackroll"
  },
  "20152760-c624-4775-a3ff-8ef32d2cd545": {
-  "pattern": "stretch_standing",
+  "pattern": "wrist",
   "equipment": "none",
   "hilite": "forearms",
   "variants": [
-   "standing"
+   "stretch"
   ],
-  "confidence": 0.5,
-  "why": "wrist stretch"
+  "confidence": 0.8,
+  "why": "wrist extension stretch"
  },
  "203a6fee-7436-4313-858f-c1e364136793": {
-  "pattern": "plank",
+  "pattern": "p_rollout",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "ab wheel roll-out approximated by plank"
+  "variants": [
+   "wheel"
+  ],
+  "confidence": 0.9,
+  "why": "ab wheel rollout"
  },
  "20b17b71-6d91-4b56-978a-04b7f94c04cc": {
   "pattern": "hinge",
@@ -1197,20 +1232,22 @@
   "why": "drag curl"
  },
  "24791f79-e5e3-4ef2-ac97-5832302172bb": {
-  "pattern": "none",
+  "pattern": "handstand",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "pike hold, isometric"
+  "variants": [
+   "pike"
+  ],
+  "confidence": 0.7,
+  "why": "pike hold from plank"
  },
  "24f988e7-51eb-44f5-92f2-d4e0199c2269": {
-  "pattern": "none",
-  "equipment": "none",
-  "hilite": "shoulders",
+  "pattern": "thruster",
+  "equipment": "kettlebell",
+  "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "complex circuit"
+  "confidence": 0.8,
+  "why": "y"
  },
  "2500c212-6f14-4a8d-a997-04e9e7c04116": {
   "pattern": "shoulder_press",
@@ -1240,20 +1277,24 @@
   "why": "explosive push-up"
  },
  "2539f907-0c10-4af5-807c-48cd15fd0878": {
-  "pattern": "hip_thrust",
+  "pattern": "p_quad",
   "equipment": "dumbbell",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.45,
-  "why": "donkey kick approximated by glute extension"
+  "variants": [
+   "donkey"
+  ],
+  "confidence": 0.9,
+  "why": "donkey kick with a dumbbell in the knee crease"
  },
  "25854f7a-485a-4280-a0fa-f024655733b0": {
-  "pattern": "stretch_kneeling",
+  "pattern": "quad_rot",
   "equipment": "none",
-  "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.6,
-  "why": "quadruped thoracic rotation"
+  "hilite": "back",
+  "variants": [
+   "far"
+  ],
+  "confidence": 0.8,
+  "why": "quadruped thoracic rotation, far arm"
  },
  "25cbc266-aa84-44f5-989b-53c9cc8fdc77": {
   "pattern": "rear_delt_fly",
@@ -1313,12 +1354,12 @@
   "why": "dumbbell bench press"
  },
  "2867cd51-f911-47db-9ea5-ca09aa44ca8f": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "quad_set",
+  "equipment": "mat",
   "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "isometric quad contraction"
+  "confidence": 0.8,
+  "why": "quad pulses, knee presses into towel"
  },
  "289bd40b-e3dd-4217-8670-e475771a0ea7": {
   "pattern": "seated_row",
@@ -1357,20 +1398,23 @@
   "why": "cable crunch"
  },
  "29a361d5-1300-4fb4-90d6-d6350bec9cb9": {
-  "pattern": "none",
+  "pattern": "dorsiflexion",
   "equipment": "band",
-  "hilite": "calves",
+  "hilite": null,
   "variants": [],
-  "confidence": 0.0,
-  "why": "ankle dorsiflexion with band"
+  "confidence": 0.8,
+  "why": "foot pulls toes to shin against band"
  },
  "2a125f64-1d10-4926-95ad-33a48e61b3d6": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "clean and press is an olympic-style lift"
+  "variants": [
+   "clean",
+   "press"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "2a1f7c0c-c63d-43f1-9934-a209ed405ff8": {
   "pattern": "side_leg_raise",
@@ -1445,14 +1489,12 @@
   "why": "knee push-up"
  },
  "2b6c09f7-dbf1-45ea-baf6-9a12e0b12396": {
-  "pattern": "bent_row",
+  "pattern": "p_plankrow",
   "equipment": "dumbbell",
-  "hilite": "back",
-  "variants": [
-   "alternating"
-  ],
-  "confidence": 0.6,
-  "why": "renegade row approximated by bent row"
+  "hilite": "lats",
+  "variants": [],
+  "confidence": 0.9,
+  "why": "renegade row: plank, alternate dumbbell rows"
  },
  "2c31daac-17b1-4cc9-b1c1-f34266ee2038": {
   "pattern": "bench_press",
@@ -1473,12 +1515,12 @@
   "why": "wrist curl"
  },
  "2cd0135b-8ef1-4bca-8a75-5fe2f507bee6": {
-  "pattern": "none",
+  "pattern": "leg_swing",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": "hamstrings",
   "variants": [],
-  "confidence": 0.0,
-  "why": "warm-up routine"
+  "confidence": 0.8,
+  "why": "y"
  },
  "2cd5e3c6-a8c0-456a-ab47-5e7b3a435407": {
   "pattern": "curl",
@@ -1509,12 +1551,14 @@
   "why": "single-leg-biased lunge"
  },
  "2e00d8e5-19a2-42ad-a954-f06a56f56561": {
-  "pattern": "run",
+  "pattern": "q_gait",
   "equipment": "none",
   "hilite": "quads",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "walking approximated by running pattern"
+  "variants": [
+   "walk"
+  ],
+  "confidence": 0.7,
+  "why": "walking gait, one foot always on the floor"
  },
  "2e7ffff9-e603-4b28-98c8-31d1a6ce8cd9": {
   "pattern": "hinge",
@@ -1535,32 +1579,35 @@
   "why": "press machine, details unclear"
  },
  "2eb61587-85d1-494f-b2fb-a92dd108b3d3": {
-  "pattern": "stretch_standing",
+  "pattern": "wall_drill_r",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "angel"
   ],
-  "confidence": 0.4,
-  "why": "wall angels mobility"
+  "confidence": 0.8,
+  "why": "wall angels"
  },
  "2ecf2e55-c1f3-40ac-b20e-0954f41a2021": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "stretch",
+   "left"
   ],
-  "confidence": 0.5,
-  "why": "neck stretch"
+  "confidence": 0.8,
+  "why": "lateral neck stretch"
  },
  "2eead109-098e-4c59-bdef-f580a6a82748": {
-  "pattern": "none",
+  "pattern": "rotation",
   "equipment": "dumbbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation, no pattern"
+  "variants": [
+   "lying"
+  ],
+  "confidence": 0.8,
+  "why": "side-lying external rotation"
  },
  "2f0ddf9a-f520-4c55-8883-f0d4a789f481": {
   "pattern": "bent_row",
@@ -1599,14 +1646,14 @@
   "why": "hip flexor stretch"
  },
  "2f5032de-df6d-406b-b709-9223ef5c3e24": {
-  "pattern": "leg_raise",
+  "pattern": "p_wiper",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": "obliques",
   "variants": [
-   "lying"
+   "isometric"
   ],
-  "confidence": 0.4,
-  "why": "isometric wipers approximated"
+  "confidence": 0.9,
+  "why": "lying isometric wipers, legs held lowered to the side"
  },
  "2f7149c3-77ce-4313-a59c-aef82b5a730a": {
   "pattern": "pulldown",
@@ -1653,12 +1700,12 @@
   "why": "terminal knee extension"
  },
  "309bfd2b-1af4-49db-b64b-d7d7c7dd39bb": {
-  "pattern": "none",
+  "pattern": "turkish_getup",
   "equipment": "dumbbell",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "Turkish get-up is multi-stage"
+  "confidence": 0.8,
+  "why": "y"
  },
  "30ac081b-fb79-4253-9457-8efc07568790": {
   "pattern": "burpee",
@@ -1739,30 +1786,32 @@
   "why": "T-bar row"
  },
  "32cc7175-3fda-4c7e-900f-8766c22e3b2b": {
-  "pattern": "none",
+  "pattern": "sled_push",
   "equipment": "none",
   "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "sled push"
+  "confidence": 0.8,
+  "why": "y"
  },
  "336e224a-a7a1-4808-9871-1ad8cfc3fee7": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "turn"
   ],
-  "confidence": 0.5,
-  "why": "neck rotation"
+  "confidence": 0.8,
+  "why": "head turns"
  },
  "33728393-2b84-4d39-8b68-462222e004e3": {
-  "pattern": "none",
+  "pattern": "floor_core",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "toe taps, no sensible pattern"
+  "variants": [
+   "toe_tap"
+  ],
+  "confidence": 0.7,
+  "why": "supine tabletop, alternating toe taps (guess: lying toe taps)"
  },
  "3393db0b-98b7-4d53-a0d4-985f97875295": {
   "pattern": "farmer_walk",
@@ -1799,12 +1848,12 @@
   "why": "elephant walk"
  },
  "35008ce6-74ca-40db-b965-44a1eccfa061": {
-  "pattern": "none",
+  "pattern": "handstand",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "handstand"
+  "confidence": 0.7,
+  "why": "free handstand, kick-up from pike"
  },
  "36274d27-3812-4b8c-80e2-ab59acf82c4d": {
   "pattern": "curl",
@@ -1823,15 +1872,14 @@
   "why": "ball crunch"
  },
  "36411665-4a87-4ab5-b5d3-e4eaa2802a62": {
-  "pattern": "squat",
+  "pattern": "q_sidesquat",
   "equipment": "none",
-  "hilite": "quads",
+  "hilite": "glutes",
   "variants": [
-   "wide",
-   "bodyweight"
+   "horse"
   ],
-  "confidence": 0.6,
-  "why": "horse stance"
+  "confidence": 0.7,
+  "why": "wide stance, sink to parallel, hold"
  },
  "3642933c-d078-4fb6-a544-d1772fa0cc9d": {
   "pattern": "bent_row",
@@ -1852,32 +1900,32 @@
   "why": "flexbar wrist extension"
  },
  "36a309ba-7dd1-43c9-9efc-788c7cd9fbd6": {
-  "pattern": "none",
+  "pattern": "wall_drill",
   "equipment": "none",
   "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "unclear drills"
+  "confidence": 0.8,
+  "why": "y"
  },
  "36b6919a-0e9d-49c6-891b-28fb55ae88ad": {
-  "pattern": "pushup",
+  "pattern": "p_pushvar",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [
-   "bodyweight"
+   "pike"
   ],
-  "confidence": 0.6,
-  "why": "V push-up approximated by push-up"
+  "confidence": 0.9,
+  "why": "V push-up = pike push-up"
  },
  "36eaf240-db34-4d83-bba9-94d0e989c9e2": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "tilt"
   ],
-  "confidence": 0.5,
-  "why": "neck tilts"
+  "confidence": 0.8,
+  "why": "head tilts"
  },
  "3717d144-7815-4a97-9a56-956fb889c996": {
   "pattern": "bench_press",
@@ -1936,14 +1984,14 @@
   "why": "reverse cable fly"
  },
  "3b96a05b-9705-48da-b43e-6e098234bb35": {
-  "pattern": "pushup",
+  "pattern": "p_pushvar",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [
-   "bodyweight"
+   "pike"
   ],
-  "confidence": 0.6,
-  "why": "pike push-up approximated by push-up"
+  "confidence": 0.9,
+  "why": "pike push-up"
  },
  "3bc8b411-a28d-4e1c-a6d1-769e18fe9881": {
   "pattern": "leg_curl",
@@ -1956,12 +2004,14 @@
   "why": "lying leg curl"
  },
  "3c2b5e2d-bd9d-43e8-8b5f-e6363331faa1": {
-  "pattern": "none",
+  "pattern": "bent_row",
   "equipment": "barbell",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "underhand barbell row"
+  "variants": [
+   "reverse"
+  ],
+  "confidence": 0.8,
+  "why": "underhand = existing pattern"
  },
  "3c33c9fd-20cc-4dff-ac88-c992bb9b2e33": {
   "pattern": "stretch_standing",
@@ -1992,12 +2042,12 @@
   "why": "lateral raise machine"
  },
  "3d85bdce-e1a9-48a2-b14d-8032820ebf25": {
-  "pattern": "none",
+  "pattern": "bus_driver",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "bus driver plate rotation"
+  "confidence": 0.8,
+  "why": "y"
  },
  "3db63138-a047-4a4d-b616-1a0b7dfca105": {
   "pattern": "bench_press",
@@ -2029,12 +2079,14 @@
   "why": "kettlebell curl"
  },
  "3e9973f6-c218-4dd4-850b-da6f4f1622bb": {
-  "pattern": "none",
+  "pattern": "planche",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "planche hold"
+  "variants": [
+   "tuck"
+  ],
+  "confidence": 0.7,
+  "why": "tuck planche"
  },
  "3e9b3bb0-7958-4836-89a5-ed0c5f7eeb03": {
   "pattern": "side_bend",
@@ -2091,15 +2143,14 @@
   "why": "crunch machine"
  },
  "4037fc14-d7a9-4901-8341-6538e415adc4": {
-  "pattern": "seated_row",
+  "pattern": "p_bodyrow",
   "equipment": "bar",
   "hilite": "lats",
   "variants": [
-   "bodyweight",
-   "lying"
+   "bar"
   ],
-  "confidence": 0.6,
-  "why": "inverted row approximated"
+  "confidence": 0.9,
+  "why": "Australian pull-up = inverted row"
  },
  "412ba9ab-ae29-4411-9bbc-74af1263494c": {
   "pattern": "squat",
@@ -2123,9 +2174,11 @@
   "pattern": "hip_thrust",
   "equipment": "band",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.45,
-  "why": "band glute kickback approximated"
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.7,
+  "why": "standing band glute kickback"
  },
  "42227131-9b1e-4220-b082-c523f0651057": {
   "pattern": "curl",
@@ -2136,12 +2189,14 @@
   "why": "EZ-bar curl"
  },
  "42657bd4-bf4e-4429-8e6a-2f5f585aa22a": {
-  "pattern": "run",
+  "pattern": "q_gait",
   "equipment": "none",
-  "hilite": "quads",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "butt kicks approximated by running"
+  "hilite": "hamstrings",
+  "variants": [
+   "buttkick"
+  ],
+  "confidence": 0.7,
+  "why": "butt kicks: heel to glute, alternating"
  },
  "428112f3-3918-45ba-870a-dc58cf3959cf": {
   "pattern": "bench_press",
@@ -2173,12 +2228,14 @@
   "why": "toes to bar is a hanging straight-leg raise"
  },
  "42e40343-955c-43a2-902e-e70bd603a713": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "breathing drill"
+  "hilite": null,
+  "variants": [
+   "wall"
+  ],
+  "confidence": 0.8,
+  "why": "belly breathing, feet on wall 90/90"
  },
  "43e85cb8-51d0-4892-b1bf-80a3cb111ff6": {
   "pattern": "curl",
@@ -2192,15 +2249,12 @@
   "why": "incline dumbbell curl"
  },
  "43eeec70-df51-4cad-9bef-a35261b0caaf": {
-  "pattern": "squat",
+  "pattern": "q_shrimp",
   "equipment": "none",
   "hilite": "quads",
-  "variants": [
-   "single_arm",
-   "bodyweight"
-  ],
-  "confidence": 0.55,
-  "why": "shrimp squat approximated by squat"
+  "variants": [],
+  "confidence": 0.7,
+  "why": "single-leg squat, back foot held, knee to the floor"
  },
  "440a5184-de58-4a86-a7ba-76ddeafaa855": {
   "pattern": "leg_curl",
@@ -2294,12 +2348,12 @@
   "why": "dynamic side hold approximated"
  },
  "45e44940-d4a0-4c66-8cbb-7afe785d5610": {
-  "pattern": "none",
+  "pattern": "lateral_bound",
   "equipment": "none",
   "hilite": "calves",
   "variants": [],
-  "confidence": 0.0,
-  "why": "lateral push-off, plyometric drill"
+  "confidence": 0.8,
+  "why": "y"
  },
  "4621b41f-0d32-4033-acff-dc079c792606": {
   "pattern": "squat",
@@ -2312,20 +2366,22 @@
   "why": "front squat"
  },
  "4632c471-5c5e-4570-9dec-509c5d4d58bb": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": null,
   "variants": [],
-  "confidence": 0.0,
-  "why": "breathing drill"
+  "confidence": 0.8,
+  "why": "belly rises, chest still"
  },
  "46adc238-9ea9-4be4-a061-74ae50f5b7c7": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
-  "hilite": "quads",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "hilite": null,
+  "variants": [
+   "it_band"
+  ],
+  "confidence": 0.8,
+  "why": "side-lying IT band roll"
  },
  "46e0f60c-fdc0-489a-82e4-a5b7476a5c21": {
   "pattern": "curl",
@@ -2347,22 +2403,22 @@
   "why": "wall sit is an isometric squat"
  },
  "476c1d96-6590-4f86-98f0-3f12808fab53": {
-  "pattern": "pushup",
+  "pattern": "p_pushvar",
   "equipment": "none",
-  "hilite": "chest",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "Hindu push-up flow approximated by push-up"
+  "hilite": "shoulders",
+  "variants": [
+   "hindu"
+  ],
+  "confidence": 0.9,
+  "why": "Hindu push-up"
  },
  "477e2c23-880b-472f-b8e2-6c9423c82fac": {
-  "pattern": "stretch_standing",
+  "pattern": "hip_circle",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [
-   "standing"
-  ],
-  "confidence": 0.4,
-  "why": "hip circles"
+  "variants": [],
+  "confidence": 0.8,
+  "why": "hip circles with plan inset"
  },
  "479ef6f0-5274-4da7-b5ad-67528ff3c8fd": {
   "pattern": "curl",
@@ -2438,12 +2494,14 @@
   "why": "knee to chest"
  },
  "493fb1ac-c45a-4b18-bcbb-58b809881e6f": {
-  "pattern": "none",
+  "pattern": "static_hold",
   "equipment": "none",
   "hilite": "forearms",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "plate pinch hold"
+  "variants": [
+   "plate"
+  ],
+  "confidence": 0.7,
+  "why": "plate pinch: lift a plate by its edge and hold"
  },
  "4aa7e2a7-86ad-4322-978f-ff8b391f556c": {
   "pattern": "pushup",
@@ -2484,14 +2542,14 @@
   "why": "upper-chest dumbbell press"
  },
  "4b278f57-4505-419a-8b34-172b53eb4adc": {
-  "pattern": "stretch_standing",
+  "pattern": "shoulder_roll",
   "equipment": "none",
-  "hilite": "shoulders",
+  "hilite": "traps",
   "variants": [
-   "standing"
+   "forward"
   ],
-  "confidence": 0.4,
-  "why": "shoulder rotation"
+  "confidence": 0.8,
+  "why": "shoulder rolls"
  },
  "4b67ccf1-6bbc-406a-b88b-e2f72b10085e": {
   "pattern": "wrist_curl",
@@ -2524,22 +2582,24 @@
   "why": "preacher curl"
  },
  "4c317795-c301-4081-9f96-6036682f80c1": {
-  "pattern": "none",
+  "pattern": "shoulder_arc",
   "equipment": "band",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "band shoulder drills, many variants"
+  "variants": [
+   "single_arm"
+  ],
+  "confidence": 0.8,
+  "why": "one-arm band arc"
  },
  "4ce9740f-313d-4419-8a23-6c884d3a1a17": {
-  "pattern": "stretch_lying",
+  "pattern": "floor_top",
   "equipment": "none",
-  "hilite": "obliques",
+  "hilite": "glutes",
   "variants": [
-   "lying"
+   "iron"
   ],
-  "confidence": 0.45,
-  "why": "iron cross lying rotation"
+  "confidence": 0.8,
+  "why": "top view supine knee drop"
  },
  "4d255f25-f199-401a-bc81-7ffab1d0ed24": {
   "pattern": "jumping_jack",
@@ -2560,28 +2620,34 @@
   "why": "stationary bike"
  },
  "4d96e62c-e4ac-45be-9428-b97f18ca26d9": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
-  "hilite": "quads",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "hilite": null,
+  "variants": [
+   "it_band"
+  ],
+  "confidence": 0.8,
+  "why": "side-lying IT band roll"
  },
  "4e238360-a4c1-4509-85c1-f96d01e69cf9": {
-  "pattern": "none",
+  "pattern": "static_hold",
   "equipment": "none",
   "hilite": "forearms",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "hand gripper"
+  "variants": [
+   "gripper"
+  ],
+  "confidence": 0.7,
+  "why": "hand gripper squeeze"
  },
  "4e396da7-b25e-42de-a507-fe1aeb4f3f77": {
-  "pattern": "stretch_kneeling",
+  "pattern": "floor_top",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.6,
-  "why": "adductor rock back"
+  "variants": [
+   "adductor"
+  ],
+  "confidence": 0.8,
+  "why": "top view quadruped, one leg out, rock back"
  },
  "4e752292-051a-4043-8f80-a390c23875e6": {
   "pattern": "calf_raise",
@@ -2604,12 +2670,14 @@
   "why": "chest-supported incline pulldown"
  },
  "4eb41bfb-cbeb-4683-b9c6-902ee7e028e0": {
-  "pattern": "none",
+  "pattern": "pulldown",
   "equipment": "cable",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "close-grip underhand pulldown"
+  "variants": [
+   "narrow"
+  ],
+  "confidence": 0.7,
+  "why": "close-grip lat pulldown (V handle; supinated not drawable)"
  },
  "4ef75e13-c058-4410-91c0-2f2d2df98130": {
   "pattern": "triceps_extension",
@@ -2632,12 +2700,12 @@
   "why": "hamstring stretch"
  },
  "4f5de647-eb73-4394-84a7-469d02a96de8": {
-  "pattern": "mountain_climber",
+  "pattern": "p_jack",
   "equipment": "none",
   "hilite": "abs",
   "variants": [],
-  "confidence": 0.45,
-  "why": "plank jacks approximated"
+  "confidence": 0.9,
+  "why": "plank jacks"
  },
  "50037aaf-34f1-4018-b504-206623b77c46": {
   "pattern": "pushup",
@@ -2670,14 +2738,12 @@
   "why": "lower back extension"
  },
  "51420ded-5c17-4ce0-b005-89f1b67b7c65": {
-  "pattern": "squat",
+  "pattern": "q_thruster",
   "equipment": "barbell",
-  "hilite": "quads",
-  "variants": [
-   "overhead"
-  ],
-  "confidence": 0.6,
-  "why": "thruster approximated by squat"
+  "hilite": "shoulders",
+  "variants": [],
+  "confidence": 0.7,
+  "why": "front squat then drive into an overhead press"
  },
  "517265a2-e4f7-4b33-979f-9be1efd86343": {
   "pattern": "cycling",
@@ -2711,28 +2777,34 @@
   "why": "wall push-up"
  },
  "51ab6376-eb3e-42dc-ad48-46166c94adac": {
-  "pattern": "face_pull",
+  "pattern": "p_bentface",
   "equipment": "dumbbell",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.6,
-  "why": "bent-over face pull"
+  "confidence": 0.9,
+  "why": "bent-over face pull with dumbbells"
  },
  "51fe0871-1390-4755-bd04-01a93e32f533": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "dumbbell",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "snatch not covered"
+  "variants": [
+   "snatch",
+   "single_arm"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "52dec48d-25a4-4a78-b66b-ad6a773e143a": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "power clean not covered"
+  "variants": [
+   "clean",
+   "power"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "53324f8e-df38-456f-9b7d-8f3a43f45f31": {
   "pattern": "mountain_climber",
@@ -2749,8 +2821,8 @@
   "variants": [
    "bodyweight"
   ],
-  "confidence": 0.55,
-  "why": "glute-ham raise approximated by leg curl"
+  "confidence": 0.7,
+  "why": "glute-ham raise on a GHD frame"
  },
  "53906cd1-61f1-4d56-ac60-e4fcc5824861": {
   "pattern": "side_leg_raise",
@@ -2763,20 +2835,24 @@
   "why": "hip adduction machine"
  },
  "53b8727f-ad5c-402a-83e6-7b8e9c0bd99a": {
-  "pattern": "none",
-  "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "balance drill"
- },
- "541941e0-0fa5-4474-a382-9baf04948f8d": {
-  "pattern": "none",
+  "pattern": "balance",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "lying hip raise"
+  "variants": [
+   "bosu"
+  ],
+  "confidence": 0.8,
+  "why": "one leg on BOSU"
+ },
+ "541941e0-0fa5-4474-a382-9baf04948f8d": {
+  "pattern": "hip_thrust",
+  "equipment": "none",
+  "hilite": "glutes",
+  "variants": [
+   "bodyweight"
+  ],
+  "confidence": 0.8,
+  "why": "existing pattern, glute bridge"
  },
  "547217ec-cb9e-4713-8bab-2d8bfb160667": {
   "pattern": "pullup",
@@ -2787,22 +2863,25 @@
   "why": "L-sit pull-up"
  },
  "54bf28e0-3709-49fd-b1b4-c99144e6a880": {
-  "pattern": "stretch_standing",
+  "pattern": "twist_stand",
   "equipment": "none",
   "hilite": "obliques",
   "variants": [
-   "standing"
+   "cross"
   ],
-  "confidence": 0.5,
-  "why": "thoracic rotation"
+  "confidence": 0.8,
+  "why": "gentle thoracic rotation"
  },
  "553fb643-32f0-447f-aecb-cdf75398d742": {
-  "pattern": "none",
+  "pattern": "balance",
   "equipment": "kettlebell",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "hip airplane balance"
+  "variants": [
+   "hinge",
+   "kb"
+  ],
+  "confidence": 0.8,
+  "why": "hinge, leg back, hips open (approximate)"
  },
  "558b3385-f1a2-47d2-8473-e1be2c7726aa": {
   "pattern": "stretch_kneeling",
@@ -2813,12 +2892,12 @@
   "why": "lunge stretch with twist"
  },
  "5597bafc-0478-4124-9745-85f9df22be3e": {
-  "pattern": "none",
+  "pattern": "pelvic_floor",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": null,
   "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic floor"
+  "confidence": 0.8,
+  "why": "pulsing ring"
  },
  "55b9d286-c4cc-4a29-97ad-58cb13c2bb7e": {
   "pattern": "pulldown",
@@ -2830,13 +2909,13 @@
  },
  "55bb8725-a7c9-48a0-b192-ec6c9db6f9bc": {
   "pattern": "lunge",
-  "equipment": "barbell",
+  "equipment": "none",
   "hilite": "quads",
   "variants": [
    "wide"
   ],
-  "confidence": 0.65,
-  "why": "lateral lunge approximated"
+  "confidence": 0.75,
+  "why": "lateral lunge (gliding lateral lunge), front view"
  },
  "55d0a5ec-b147-40c3-aa77-314e61c93689": {
   "pattern": "chest_fly",
@@ -2891,13 +2970,13 @@
   "why": "archer pull-up"
  },
  "56a03260-2901-4b28-bd41-a030185f985a": {
-  "pattern": "stretch_standing",
+  "pattern": "twist_stand",
   "equipment": "none",
-  "hilite": "obliques",
+  "hilite": "abs",
   "variants": [
-   "standing"
+   "cactus"
   ],
-  "confidence": 0.5,
+  "confidence": 0.8,
   "why": "torso twist"
  },
  "57018827-f344-4627-88e5-03e4f2f49859": {
@@ -2931,12 +3010,14 @@
   "why": "lateral cable row, details unclear"
  },
  "57d1a6fc-fc28-43a7-9beb-0e851a47a976": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
-  "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swim kick"
+  "hilite": "quads",
+  "variants": [
+   "kick"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "57e17672-52b9-43cf-8d0d-4b3f06a0c0d0": {
   "pattern": "bench_press",
@@ -2961,12 +3042,14 @@
   "why": "alternating reverse lunge"
  },
  "58416166-7a3a-470d-b493-27332799dcdf": {
-  "pattern": "side_bend",
+  "pattern": "q_chop",
   "equipment": "none",
   "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.55,
-  "why": "wood chop approximated by side bend"
+  "variants": [
+   "front"
+  ],
+  "confidence": 0.7,
+  "why": "high to low diagonal chop"
  },
  "5851e2b1-3a80-42ff-91da-530e6b143a34": {
   "pattern": "pulldown",
@@ -3042,15 +3125,18 @@
   "why": "TRX curl"
  },
  "5986cd29-11ff-43f4-af65-fc48dec62156": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "dumbbell",
   "hilite": "shoulders",
   "variants": [
    "incline",
-   "lying"
+   "Y",
+   "T",
+   "W",
+   "L"
   ],
-  "confidence": 0.4,
-  "why": "YTWL approximated"
+  "confidence": 0.9,
+  "why": "incline bench Y-T-W-L with dumbbells"
  },
  "5a096571-4eae-472e-8849-fe5647035e2c": {
   "pattern": "pulldown",
@@ -3071,12 +3157,14 @@
   "why": "sit and reach"
  },
  "5a9f4fa4-6b71-4bc7-a284-e76e43e3106a": {
-  "pattern": "none",
+  "pattern": "rotation",
   "equipment": "dumbbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.8,
+  "why": "elbow at side, front view"
  },
  "5aee8ae1-2752-4868-af62-e3c79954d811": {
   "pattern": "triceps_pushdown",
@@ -3247,13 +3335,11 @@
   "why": "leg press"
  },
  "5f514f9e-6bd9-408e-85b2-c25eb04af33b": {
-  "pattern": "leg_raise",
+  "pattern": "leg_raise_stand",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [
-   "standing"
-  ],
-  "confidence": 0.55,
+  "variants": [],
+  "confidence": 0.8,
   "why": "standing leg raise"
  },
  "5fd01c23-6c54-40cb-9a67-87c7a325baee": {
@@ -3267,15 +3353,14 @@
   "why": "isometric chin-up hold"
  },
  "603895ca-20a0-4272-a62b-293d14220390": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "lying",
-   "bodyweight"
+   "snow"
   ],
-  "confidence": 0.4,
-  "why": "snow angel approximated by prone reverse fly"
+  "confidence": 0.9,
+  "why": "prone reverse snow angel"
  },
  "60d2c34b-43a1-48a3-b43b-160e4c0157f2": {
   "pattern": "lunge",
@@ -3362,23 +3447,22 @@
   "why": "lateral raise"
  },
  "6349365e-e901-4280-a1b7-65734986f47d": {
-  "pattern": "back_extension",
+  "pattern": "p_quad",
   "equipment": "none",
-  "hilite": "back",
+  "hilite": "abs",
   "variants": [
-   "alternating",
-   "bodyweight"
+   "bird_dog"
   ],
-  "confidence": 0.55,
-  "why": "bird dog approximated"
+  "confidence": 0.9,
+  "why": "bird dog: alternate opposite arm and leg"
  },
  "638756b5-a957-48f4-93ca-8994cead818f": {
-  "pattern": "none",
+  "pattern": "hamstring_pull",
   "equipment": "none",
   "hilite": "hamstrings",
   "variants": [],
-  "confidence": 0.0,
-  "why": "unclear exercise"
+  "confidence": 0.8,
+  "why": "y"
  },
  "63fbb8e5-6ebc-4def-8844-3e65e097213b": {
   "pattern": "pulldown",
@@ -3409,12 +3493,14 @@
   "why": "silverback shrug"
  },
  "64ebb7a5-15ec-48dd-8f82-47cdb022f215": {
-  "pattern": "none",
+  "pattern": "floor_core",
   "equipment": "none",
   "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "sliding drill, no pattern"
+  "variants": [
+   "knee_slide"
+  ],
+  "confidence": 0.7,
+  "why": "plank on sliders, knee tuck (guess)"
  },
  "654793c2-e0e3-41fd-a549-0ece0f4378e8": {
   "pattern": "run",
@@ -3443,20 +3529,20 @@
   "why": "wide-stance leg press"
  },
  "662b9911-fa55-4564-b830-fdb6a046b162": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "front_lever",
+  "equipment": "bar",
   "hilite": "lats",
   "variants": [],
-  "confidence": 0.0,
-  "why": "unclear exercise"
+  "confidence": 0.8,
+  "why": "y"
  },
  "664ddd40-a595-420d-801f-148e4bf0594c": {
-  "pattern": "none",
+  "pattern": "shoulder_arc",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "shoulder dislocate with band or stick"
+  "confidence": 0.8,
+  "why": "stick/band arc front to overhead to behind"
  },
  "6679b2ad-91b7-4a75-9230-3ae1101bdd50": {
   "pattern": "side_plank",
@@ -3512,16 +3598,18 @@
   "variants": [
    "standing"
   ],
-  "confidence": 0.5,
-  "why": "glute kickback machine approximated"
+  "confidence": 0.75,
+  "why": "standing glute kickback machine"
  },
  "6705ec92-c6c6-4b2c-b919-bddb8177bf98": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "unclear drill"
+  "variants": [
+   "bob"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "671568f9-6653-4e11-ac71-3f34c74329a0": {
   "pattern": "stretch_standing",
@@ -3544,14 +3632,12 @@
   "why": "finger push-up"
  },
  "67bca611-d9f1-4855-9e02-ecc8d7d688e9": {
-  "pattern": "squat",
+  "pattern": "q_landmine_press",
   "equipment": "barbell",
-  "hilite": "quads",
-  "variants": [
-   "overhead"
-  ],
-  "confidence": 0.5,
-  "why": "landmine squat to press approximated"
+  "hilite": "shoulders",
+  "variants": [],
+  "confidence": 0.7,
+  "why": "squat holding the landmine end at the chest, press on the way up"
  },
  "67c26c9b-32f3-4b8b-b13a-4d8be4803975": {
   "pattern": "wrist_curl",
@@ -3628,13 +3714,13 @@
   "why": "seated calf raise"
  },
  "69b3da17-11cc-41fe-bbc1-ee6c45ced41c": {
-  "pattern": "stretch_standing",
+  "pattern": "arm_circle",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [
-   "standing"
+   "backward"
   ],
-  "confidence": 0.4,
+  "confidence": 0.8,
   "why": "arm circles"
  },
  "6a448382-0ea9-4f41-8a83-0b7cd7d8a2bf": {
@@ -3698,12 +3784,14 @@
   "why": "reach up side bend"
  },
  "6c34000f-5d0b-43a9-b16e-00fd00c6db78": {
-  "pattern": "run",
+  "pattern": "q_gait",
   "equipment": "none",
-  "hilite": "quads",
-  "variants": [],
-  "confidence": 0.45,
-  "why": "walking approximated by running"
+  "hilite": "calves",
+  "variants": [
+   "alternate"
+  ],
+  "confidence": 0.5,
+  "why": "exaggerated alternating long stride with knee drive (guess)"
  },
  "6c671e43-497f-4863-8d78-b592f3b5e7c6": {
   "pattern": "triceps_extension",
@@ -3726,27 +3814,32 @@
   "why": "quad stretch"
  },
  "6c8b0c67-68af-4473-907e-31fb1e48430c": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
-  "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swimming"
+  "hilite": "lats",
+  "variants": [
+   "freestyle",
+   "sprint"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "6c8cd086-1cd0-4979-8d01-7df72b1e839b": {
-  "pattern": "none",
+  "pattern": "pelvic_tilt",
   "equipment": "none",
   "hilite": "abs",
   "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic tilt micro-movement"
+  "confidence": 0.8,
+  "why": "tilt cue"
  },
  "6c9c9d14-e6bf-43ed-9859-a689e2131fe0": {
-  "pattern": "none",
+  "pattern": "support_hold",
   "equipment": "none",
   "hilite": "chest",
-  "variants": [],
-  "confidence": 0.0,
+  "variants": [
+   "rings"
+  ],
+  "confidence": 0.7,
   "why": "ring support hold"
  },
  "6cbdd70c-0691-4288-b58a-24001384f1b3": {
@@ -3756,8 +3849,8 @@
   "variants": [
    "bodyweight"
   ],
-  "confidence": 0.45,
-  "why": "reverse Nordic approximated"
+  "confidence": 0.8,
+  "why": "reverse nordic: kneeling lean back"
  },
  "6ce25688-ae91-4dc7-9b17-0b66a47151fa": {
   "pattern": "bent_row",
@@ -3784,22 +3877,24 @@
   "why": "seated lateral raise"
  },
  "6ddea666-5a57-4ac0-926f-01f8cfdaa4fd": {
-  "pattern": "hip_thrust",
+  "pattern": "p_quad",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.45,
-  "why": "kneeling kickback approximated"
+  "variants": [
+   "kickback"
+  ],
+  "confidence": 0.9,
+  "why": "all-fours glute kickback"
  },
  "6e00afb6-272d-44a2-8ae3-e7fa41b50f06": {
-  "pattern": "chest_fly",
+  "pattern": "p_pullover",
   "equipment": "dumbbell",
   "hilite": "lats",
   "variants": [
-   "lying"
+   "cross"
   ],
-  "confidence": 0.55,
-  "why": "pullover approximated"
+  "confidence": 0.9,
+  "why": "dumbbell pullover lying across a bench"
  },
  "6e03ecb3-6bfe-4b34-be9d-e5c33e820cc6": {
   "pattern": "front_raise",
@@ -3844,20 +3939,24 @@
   "why": "rope pushdown"
  },
  "6ec2d684-8091-4da9-8814-8a3052d0a302": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swim drill"
+  "variants": [
+   "side_kick"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "6f5d4373-66d1-4acd-a16f-ba0e636fe979": {
-  "pattern": "side_bend",
+  "pattern": "q_chop",
   "equipment": "none",
-  "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "reverse wood chop approximated"
+  "hilite": "glutes",
+  "variants": [
+   "reverse"
+  ],
+  "confidence": 0.7,
+  "why": "low to high diagonal chop"
  },
  "6f79b381-98a4-40d5-8a45-3bb0558be6fe": {
   "pattern": "rear_delt_fly",
@@ -3868,20 +3967,22 @@
   "why": "bent-over lateral raise"
  },
  "6f919d6d-e8b2-4aac-bc43-fd6184978b70": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "handstand",
+  "equipment": "box",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "handstand push-up"
+  "variants": [
+   "pushup"
+  ],
+  "confidence": 0.7,
+  "why": "pike handstand push-up with feet on a box"
  },
  "6fc4815a-8852-4e89-a10b-bd36a9029dbb": {
-  "pattern": "leg_raise",
+  "pattern": "hanging_knee_raise",
   "equipment": "bar",
   "hilite": "obliques",
   "variants": [],
-  "confidence": 0.4,
-  "why": "hanging oblique work approximated"
+  "confidence": 0.5,
+  "why": "hanging oblique knee raise"
  },
  "70479b75-0df4-4ac2-a324-4a44b148304c": {
   "pattern": "bench_press",
@@ -3952,12 +4053,14 @@
   "why": "side-lying hip abduction"
  },
  "728b00ba-f9cb-4f04-915a-ccd5cd0b86bf": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "breathing drill"
+  "hilite": null,
+  "variants": [
+   "relaxed"
+  ],
+  "confidence": 0.8,
+  "why": "belly breathing"
  },
  "72a945ec-3a7f-424b-9a05-1616ef7dce91": {
   "pattern": "shrug",
@@ -4008,20 +4111,24 @@
   "why": "upright row on smith machine"
  },
  "73c1e130-fba9-473b-a093-a5712e2ae34d": {
-  "pattern": "side_bend",
+  "pattern": "q_rotation",
   "equipment": "barbell",
   "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.45,
-  "why": "landmine rotation approximated"
+  "variants": [
+   "landmine"
+  ],
+  "confidence": 0.7,
+  "why": "landmine arc side to side, top-view inset"
  },
  "73dbe7a5-e8f3-48fd-814e-bc3378c15be2": {
-  "pattern": "none",
+  "pattern": "planche",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "planche hold"
+  "variants": [
+   "dynamic"
+  ],
+  "confidence": 0.7,
+  "why": "lean -> tuck -> advanced tuck cycle"
  },
  "743690d3-dbfb-417a-a049-8b77fd5df31b": {
   "pattern": "pushup",
@@ -4043,20 +4150,24 @@
   "why": "Pendlay row"
  },
  "74d4697d-8a97-4ea2-9d05-fa4d2bd7221e": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "hang",
+  "equipment": "bar",
   "hilite": "forearms",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "dead hang on fingerboard"
+  "variants": [
+   "dead"
+  ],
+  "confidence": 0.7,
+  "why": "passive hang from a bar"
  },
  "752c0380-a0f9-4332-8265-cf503bac4703": {
-  "pattern": "none",
+  "pattern": "floor_core",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "roll-over drill"
+  "variants": [
+   "rollover"
+  ],
+  "confidence": 0.7,
+  "why": "roll over to plough and back to V-sit"
  },
  "75d730d0-3b26-4a25-8f1a-7119a98e02ef": {
   "pattern": "plank",
@@ -4088,22 +4199,24 @@
   "why": "ring dips approximated"
  },
  "768e0703-a04d-4d97-89ce-a49cd6be2b06": {
-  "pattern": "bent_row",
+  "pattern": "p_plankrow",
   "equipment": "kettlebell",
   "hilite": "lats",
   "variants": [
    "single_arm"
   ],
-  "confidence": 0.55,
-  "why": "plank row approximated"
+  "confidence": 0.9,
+  "why": "plank to row with one kettlebell"
  },
  "76965848-9776-4be5-b879-e3c97033b80f": {
-  "pattern": "none",
+  "pattern": "pulldown",
   "equipment": "cable",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "underhand lat pulldown"
+  "variants": [
+   "reverse"
+  ],
+  "confidence": 0.8,
+  "why": "underhand = existing pattern"
  },
  "76a2f8a6-374b-42c8-b8ac-e8d64612f046": {
   "pattern": "triceps_extension",
@@ -4127,12 +4240,15 @@
   "why": "lying figure four"
  },
  "7704e810-c05d-47cc-a384-265e0231a497": {
-  "pattern": "none",
+  "pattern": "handstand",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "handstand push-up"
+  "variants": [
+   "wall",
+   "pushup"
+  ],
+  "confidence": 0.7,
+  "why": "wall handstand push-up"
  },
  "77a56810-d050-4083-9501-d648f773376a": {
   "pattern": "hinge",
@@ -4172,30 +4288,34 @@
   "why": "isometric pushdown"
  },
  "7936d8ad-6a39-4459-aa60-3e1e325f5e2b": {
-  "pattern": "stretch_standing",
+  "pattern": "wall_drill_r",
   "equipment": "none",
   "hilite": "serratus",
   "variants": [
-   "standing"
+   "serratus"
   ],
-  "confidence": 0.5,
+  "confidence": 0.8,
   "why": "serratus wall slide"
  },
  "793b0e5f-8dea-48a6-84c8-9123b59c2721": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "transverse abdominis activation, no visible movement"
+  "variants": [
+   "vacuum"
+  ],
+  "confidence": 0.8,
+  "why": "navel drawn in"
  },
  "7a1e0cd7-0076-4d4d-b05f-1d114235f199": {
-  "pattern": "none",
+  "pattern": "support_hold",
   "equipment": "none",
   "hilite": "chest",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "support hold on parallel bars"
+  "variants": [
+   "bars"
+  ],
+  "confidence": 0.7,
+  "why": "Italian: isometric hold on parallel bars"
  },
  "7ae1aca7-cdd4-4a81-b22c-f31778462b6b": {
   "pattern": "bent_row",
@@ -4235,12 +4355,14 @@
   "why": "barbell curl"
  },
  "7bd11f85-69a1-42ea-9924-7df7ba6d4f10": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "breathing drill"
+  "hilite": null,
+  "variants": [
+   "90_90"
+  ],
+  "confidence": 0.8,
+  "why": "legs 90/90 on box"
  },
  "7bf4e131-d4a3-44c0-8fca-9e10002492e7": {
   "pattern": "face_pull",
@@ -4327,12 +4449,14 @@
   "why": "wrist roller"
  },
  "7dd7a735-c1fe-4ca0-a6e8-e825d897b065": {
-  "pattern": "none",
+  "pattern": "balance",
   "equipment": "none",
-  "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "balance pose"
+  "hilite": "hamstrings",
+  "variants": [
+   "hinge"
+  ],
+  "confidence": 0.8,
+  "why": "arabesque"
  },
  "7de7b8a8-313d-465f-bb22-8527ae45110a": {
   "pattern": "crunch",
@@ -4351,24 +4475,25 @@
   "why": "Y pull approximated by face pull"
  },
  "7e74b1f1-636b-4821-b4be-3711328b89b4": {
-  "pattern": "run",
-  "equipment": "machine",
-  "hilite": "quads",
+  "pattern": "q_gait",
+  "equipment": "none",
+  "hilite": "hamstrings",
   "variants": [
-   "reverse"
+   "retro"
   ],
-  "confidence": 0.45,
-  "why": "backward treadmill walking"
+  "confidence": 0.7,
+  "why": "backward walking on a treadmill, hands on the rail"
  },
  "7ea504e7-3310-4638-a111-054fabfd4b80": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "stretch",
+   "right"
   ],
-  "confidence": 0.5,
-  "why": "neck stretch"
+  "confidence": 0.8,
+  "why": "lateral neck stretch"
  },
  "7eb52939-0e33-4319-829d-d8e142fc74d9": {
   "pattern": "curl",
@@ -4407,22 +4532,25 @@
   "why": "assisted pull-up machine"
  },
  "7f8997d2-e21f-492f-a470-b9f0c5e54f1d": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "levator",
+   "left"
   ],
-  "confidence": 0.6,
+  "confidence": 0.8,
   "why": "levator scapulae stretch"
  },
  "7f942691-2a01-4675-9e3a-409105d5f2bf": {
-  "pattern": "none",
+  "pattern": "calm",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "meditation"
+  "hilite": null,
+  "variants": [
+   "seated"
+  ],
+  "confidence": 0.8,
+  "why": "seated meditation, breath and rings"
  },
  "7f9c13ab-1718-4f8a-8636-232f05f5f640": {
   "pattern": "lateral_raise",
@@ -4443,15 +4571,14 @@
   "why": "TRX dips"
  },
  "80c167b9-3749-48a1-8686-fc2163a1e7fb": {
-  "pattern": "back_extension",
+  "pattern": "p_quad",
   "equipment": "none",
-  "hilite": "back",
+  "hilite": "glutes",
   "variants": [
-   "alternating",
-   "bodyweight"
+   "bird_dog"
   ],
-  "confidence": 0.55,
-  "why": "quadruped arm-leg raise like bird dog"
+  "confidence": 0.9,
+  "why": "quadruped arm and leg raise"
  },
  "80d83f98-efe5-4d87-a403-c0feadc8650f": {
   "pattern": "lunge",
@@ -4482,12 +4609,14 @@
   "why": "gorilla row"
  },
  "8161de8b-7802-46c0-9bd4-db60f39b7677": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "snatch not covered"
+  "variants": [
+   "snatch"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "81942f3d-d92c-431c-b9d0-0da12918d1e4": {
   "pattern": "lateral_raise",
@@ -4572,22 +4701,25 @@
   "why": "band pull-apart"
  },
  "8374a856-9293-4b90-900e-00c3bfe21cc4": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "levator",
+   "right"
   ],
-  "confidence": 0.6,
+  "confidence": 0.8,
   "why": "levator scapulae stretch"
  },
  "8381f40c-3168-4d98-af60-6a89800dd308": {
-  "pattern": "none",
+  "pattern": "static_hold",
   "equipment": "cable",
-  "hilite": "biceps",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "Hercules pillars pose, no pattern"
+  "hilite": "chest",
+  "variants": [
+   "pillars"
+  ],
+  "confidence": 0.7,
+  "why": "two high cables, arms out, hold"
  },
  "83af8d94-319b-456b-92d8-75cec821a195": {
   "pattern": "triceps_pushdown",
@@ -4598,14 +4730,14 @@
   "why": "single-arm pushdown"
  },
  "849f2fa6-42f9-4c59-90f6-275c8ada6725": {
-  "pattern": "russian_twist",
+  "pattern": "q_rotation",
   "equipment": "machine",
-  "hilite": "obliques",
+  "hilite": "abs",
   "variants": [
-   "seated"
+   "machine"
   ],
-  "confidence": 0.6,
-  "why": "rotary torso machine"
+  "confidence": 0.7,
+  "why": "seated rotary torso machine, top-view inset shows the twist"
  },
  "84b38ac6-9628-4f80-8940-204047fa2544": {
   "pattern": "bent_row",
@@ -4626,12 +4758,14 @@
   "why": "burpee without push-up"
  },
  "85c28424-ab47-40d4-9a27-e1b9bfb01e7c": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "jerk is an olympic lift"
+  "variants": [
+   "jerk"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "85cb0a1b-250e-400b-892b-50186dac0777": {
   "pattern": "shoulder_press",
@@ -4775,12 +4909,12 @@
   "why": "jumping jacks"
  },
  "89651d40-9abf-49b5-9ee5-7b0ecb25fd03": {
-  "pattern": "none",
+  "pattern": "scorpion_kick",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": "glutes",
   "variants": [],
-  "confidence": 0.0,
-  "why": "unclear kick exercise"
+  "confidence": 0.8,
+  "why": "y"
  },
  "89c3d614-e841-4c04-bee8-6761567e4b7c": {
   "pattern": "run",
@@ -4807,12 +4941,14 @@
   "why": "dumbbell split squat"
  },
  "8a9fff1e-0908-4706-8baa-7f400e2dac19": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
   "hilite": "calves",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "variants": [
+   "tibialis"
+  ],
+  "confidence": 0.8,
+  "why": "all fours, shins on roller"
  },
  "8aae635b-cb15-4129-bc09-6951fa376274": {
   "pattern": "calf_raise",
@@ -4839,15 +4975,14 @@
   "why": "kettlebell swing"
  },
  "8b494562-012e-4944-be65-9b168f0c8c41": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "none",
-  "hilite": "traps",
+  "hilite": "shoulders",
   "variants": [
-   "lying",
-   "bodyweight"
+   "W"
   ],
-  "confidence": 0.35,
-  "why": "W raise approximated"
+  "confidence": 0.9,
+  "why": "prone W raise"
  },
  "8bb42000-834f-48ab-af5c-0c31d94e0181": {
   "pattern": "pulldown",
@@ -4869,22 +5004,24 @@
   "why": "band-assisted pull-up"
  },
  "8bffd3b2-663a-4617-9d95-dce24e795470": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "half"
   ],
-  "confidence": 0.5,
-  "why": "neck half circles"
+  "confidence": 0.8,
+  "why": "half circles"
  },
  "8c132ea0-7885-474f-8514-0909ae22bdf6": {
-  "pattern": "squat",
+  "pattern": "q_sidesquat",
   "equipment": "none",
   "hilite": "quads",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "dragon squat approximated"
+  "variants": [
+   "dragon"
+  ],
+  "confidence": 0.55,
+  "why": "cross-behind step then single-leg squat, front view"
  },
  "8c23116c-b640-4f80-a309-235cc12d83d8": {
   "pattern": "stretch_lying",
@@ -4905,30 +5042,33 @@
   "why": "lat pulldown leaning back"
  },
  "8c4a9c16-294b-40e5-ba6d-50ae523704ba": {
-  "pattern": "hip_thrust",
+  "pattern": "p_bridgepress",
   "equipment": "dumbbell",
-  "hilite": "glutes",
-  "variants": [
-   "single_arm"
-  ],
-  "confidence": 0.6,
-  "why": "bridge with press approximated"
+  "hilite": "chest",
+  "variants": [],
+  "confidence": 0.9,
+  "why": "glute bridge with single-arm dumbbell press"
  },
  "8c509754-c86f-4c1b-bfa9-29c906ffc409": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "clean and jerk"
+  "variants": [
+   "clean",
+   "jerk"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "8c5a72c7-97e3-4993-9d5f-dd920bde597e": {
-  "pattern": "none",
+  "pattern": "pelvic_tilt",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic wave"
+  "variants": [
+   "wave"
+  ],
+  "confidence": 0.8,
+  "why": "tilt then lift"
  },
  "8c6428f3-d41d-4ffc-8444-bb9b823bc42b": {
   "pattern": "squat",
@@ -4959,14 +5099,15 @@
   "why": "clamshell"
  },
  "8ccd5844-4b46-475d-b36f-5f58ca496840": {
-  "pattern": "seated_row",
+  "pattern": "p_bodyrow",
   "equipment": "bar",
   "hilite": "lats",
   "variants": [
-   "bodyweight"
+   "bar",
+   "isometric"
   ],
-  "confidence": 0.4,
-  "why": "isometric inverted row approximated"
+  "confidence": 0.9,
+  "why": "inverted row hold"
  },
  "8d333b94-148c-48f8-9154-8b13279500d1": {
   "pattern": "crunch",
@@ -4977,15 +5118,14 @@
   "why": "weighted crunch"
  },
  "8d56eb18-b000-41ff-8b31-c74df3a4b34b": {
-  "pattern": "seated_row",
+  "pattern": "p_bodyrow",
   "equipment": "bar",
   "hilite": "lats",
   "variants": [
-   "bodyweight",
-   "lying"
+   "bar"
   ],
-  "confidence": 0.6,
-  "why": "inverted row approximated"
+  "confidence": 0.9,
+  "why": "inverted row under a bar"
  },
  "8dedde58-a5dc-4a23-ad20-fd7cf524f8b5": {
   "pattern": "cycling",
@@ -4996,12 +5136,14 @@
   "why": "cycling, no equipment shown"
  },
  "8e1cda15-542b-4714-8cc5-c1fe5089ee27": {
-  "pattern": "none",
+  "pattern": "lever",
   "equipment": "bar",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "back lever hold"
+  "hilite": "back",
+  "variants": [
+   "back"
+  ],
+  "confidence": 0.7,
+  "why": "back lever"
  },
  "8e420408-0682-4ab6-89f5-2681e54c7ce0": {
   "pattern": "pullup",
@@ -5030,14 +5172,14 @@
   "why": "dumbbell pullover-like pull"
  },
  "90e9f590-7d68-4afb-9f95-8429246ea4aa": {
-  "pattern": "russian_twist",
+  "pattern": "q_rotation",
   "equipment": "cable",
   "hilite": "obliques",
   "variants": [
-   "standing"
+   "cable"
   ],
-  "confidence": 0.55,
-  "why": "cable trunk rotation"
+  "confidence": 0.7,
+  "why": "standing cable rotation, arms straight, front view + top inset"
  },
  "90f12b1b-b33e-4d83-9f9e-e26d3a4b8e0b": {
   "pattern": "stretch_lying",
@@ -5118,12 +5260,14 @@
   "why": "lateral knee raise machine"
  },
  "934856f3-6eb3-4b37-9536-0ff67a6aa036": {
-  "pattern": "none",
+  "pattern": "support_hold",
   "equipment": "none",
-  "hilite": "chest",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "support hold"
+  "hilite": "triceps",
+  "variants": [
+   "bars"
+  ],
+  "confidence": 0.7,
+  "why": "support hold on parallel bars"
  },
  "9374fdaf-411f-4ae6-8f0c-21cc2d3dc667": {
   "pattern": "pushup",
@@ -5136,12 +5280,14 @@
   "why": "side-to-side push-up"
  },
  "9396a728-3da4-4390-ae4d-882395805008": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "l_sit",
+  "equipment": "bench",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "tuck L-sit"
+  "variants": [
+   "tuck"
+  ],
+  "confidence": 0.7,
+  "why": "tuck L-sit between two benches/blocks"
  },
  "93b9b84c-7b72-4712-a7c2-0e14a5fab32a": {
   "pattern": "side_leg_raise",
@@ -5195,12 +5341,12 @@
   "why": "single-leg RDL"
  },
  "95a300de-2ad8-492e-9364-13766d9e7618": {
-  "pattern": "run",
-  "equipment": "machine",
-  "hilite": "quads",
+  "pattern": "q_elliptical",
+  "equipment": "none",
+  "hilite": "glutes",
   "variants": [],
-  "confidence": 0.5,
-  "why": "elliptical approximated"
+  "confidence": 0.7,
+  "why": "elliptical trainer: elliptical pedal path, handles swing opposite"
  },
  "95a7e546-e8f8-4521-a76b-983d94161b25": {
   "pattern": "triceps_extension",
@@ -5248,8 +5394,8 @@
    "seated",
    "wide"
   ],
-  "confidence": 0.6,
-  "why": "pancake good morning"
+  "confidence": 0.75,
+  "why": "seated good morning, legs forward"
  },
  "965b0d80-544b-4f22-a64b-32dc033f071a": {
   "pattern": "back_extension",
@@ -5270,8 +5416,8 @@
    "wide",
    "bodyweight"
   ],
-  "confidence": 0.6,
-  "why": "Cossack squat approximated"
+  "confidence": 0.8,
+  "why": "cossack squat, front-view lateral lunge"
  },
  "96f9d74a-7bf4-4ec1-9cd6-c62c13cf7b67": {
   "pattern": "squat",
@@ -5292,22 +5438,24 @@
   "why": "hamstring stretch"
  },
  "9776bcb9-90a8-4f20-898f-652f82cabd5f": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "stomach vacuum, no visible movement"
+  "variants": [
+   "vacuum"
+  ],
+  "confidence": 0.8,
+  "why": "navel drawn in"
  },
  "979e3433-4db8-4f37-a5e0-f43c86756690": {
-  "pattern": "stretch_seated",
+  "pattern": "ankle_circle",
   "equipment": "none",
-  "hilite": "calves",
+  "hilite": null,
   "variants": [
-   "seated"
+   "cw"
   ],
-  "confidence": 0.4,
-  "why": "ankle roll"
+  "confidence": 0.8,
+  "why": "seated foot tracing circle"
  },
  "9801e20b-69c3-43d0-9066-450a68230c42": {
   "pattern": "lunge",
@@ -5317,8 +5465,8 @@
    "wide",
    "bodyweight"
   ],
-  "confidence": 0.6,
-  "why": "side split squat approximated"
+  "confidence": 0.75,
+  "why": "side split squat, lateral lunge front view"
  },
  "9816dc3a-9739-4c70-bce0-4131f889e4f2": {
   "pattern": "crunch",
@@ -5329,15 +5477,16 @@
   "why": "levitation crunch"
  },
  "981b07b6-e76e-438c-bad4-388441b7ff33": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [
-   "lying",
-   "bodyweight"
+   "Y",
+   "W",
+   "T"
   ],
-  "confidence": 0.4,
-  "why": "YWT raises approximated"
+  "confidence": 0.9,
+  "why": "prone Y-W-T"
  },
  "9828f705-350b-4afd-86c4-fcc0e8a0fb4b": {
   "pattern": "curl",
@@ -5376,22 +5525,25 @@
   "why": "dumbbell curl"
  },
  "99a7651b-afc1-4007-ab80-aac590bbfbfe": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "self-massage"
+  "variants": [
+   "glutes",
+   "ball"
+  ],
+  "confidence": 0.8,
+  "why": "lax ball"
  },
  "9a5d36b8-7fa5-4705-8e9b-fafa211a13d6": {
-  "pattern": "stretch_standing",
+  "pattern": "twist_stand",
   "equipment": "none",
   "hilite": "obliques",
   "variants": [
-   "standing"
+   "wall"
   ],
-  "confidence": 0.5,
-  "why": "wall-hold rotation"
+  "confidence": 0.8,
+  "why": "wall hold rotation"
  },
  "9a644b0e-8691-4216-b2cc-f058f58ec96d": {
   "pattern": "shrug",
@@ -5419,8 +5571,8 @@
   "variants": [
    "bodyweight"
   ],
-  "confidence": 0.6,
-  "why": "Nordic curl approximated"
+  "confidence": 0.85,
+  "why": "nordic curl, kneeling lowering"
  },
  "9b5f8c6e-2436-4ded-aea9-8c698b0c8768": {
   "pattern": "hinge",
@@ -5466,25 +5618,22 @@
   "why": "lying triceps kickback"
  },
  "9cb69afc-7a44-4a22-b9a9-7bde8aca5b11": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "lying",
-   "bodyweight"
+   "retract"
   ],
-  "confidence": 0.4,
-  "why": "prone scapular retraction approximated"
+  "confidence": 0.9,
+  "why": "prone scapular retraction, arms at the sides"
  },
  "9ccd53e0-8392-4e61-91aa-e4e5f4ea339c": {
-  "pattern": "chest_fly",
+  "pattern": "p_pullover",
   "equipment": "dumbbell",
   "hilite": "chest",
-  "variants": [
-   "lying"
-  ],
-  "confidence": 0.55,
-  "why": "pullover approximated by fly arc"
+  "variants": [],
+  "confidence": 0.9,
+  "why": "dumbbell pullover along a bench"
  },
  "9cfb8d32-579e-4e0a-945f-74e3788fbe43": {
   "pattern": "seated_row",
@@ -5495,13 +5644,13 @@
   "why": "high cable row, details unclear"
  },
  "9d9c4c9f-045f-4af5-adf2-8bb07c3516dc": {
-  "pattern": "stretch_standing",
+  "pattern": "arm_circle",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [
-   "standing"
+   "forward"
   ],
-  "confidence": 0.4,
+  "confidence": 0.8,
   "why": "arm circles"
  },
  "9dfce8f0-39fc-4204-9f84-500ec42074e9": {
@@ -5523,12 +5672,14 @@
   "why": "lying leg raise"
  },
  "9e3c665d-ac4e-456b-b1cd-0c209ce8090a": {
-  "pattern": "none",
+  "pattern": "pelvic_floor",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic floor"
+  "hilite": null,
+  "variants": [
+   "reverse"
+  ],
+  "confidence": 0.8,
+  "why": "ring expands"
  },
  "9e6dae29-5d03-440a-bdf1-2cb25a5179c2": {
   "pattern": "step_up",
@@ -5549,12 +5700,14 @@
   "why": "seated calf stretch"
  },
  "9f9edad8-7da0-448c-bfcb-ec61f2d28162": {
-  "pattern": "none",
+  "pattern": "hang",
   "equipment": "none",
   "hilite": "forearms",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "hang on slopers"
+  "variants": [
+   "sloper"
+  ],
+  "confidence": 0.7,
+  "why": "hang from a sloper hold"
  },
  "a00b852c-0d2b-4b4a-bbc2-ef538f211b6c": {
   "pattern": "stretch_seated",
@@ -5577,12 +5730,14 @@
   "why": "double kettlebell front squat"
  },
  "a092afaf-aa5a-4384-b407-a6b52cf1c008": {
-  "pattern": "none",
+  "pattern": "l_sit",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "L-sit hold"
+  "variants": [
+   "foot"
+  ],
+  "confidence": 0.7,
+  "why": "L-sit with heels on the floor"
  },
  "a136959c-b0c8-49d3-99b9-0a5f41abf00e": {
   "pattern": "curl",
@@ -5593,12 +5748,12 @@
   "why": "alternating curl"
  },
  "a1e8759d-72b9-422f-87a8-9d316fa18498": {
-  "pattern": "none",
+  "pattern": "ball_slam",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": "lats",
   "variants": [],
-  "confidence": 0.0,
-  "why": "ball slam"
+  "confidence": 0.8,
+  "why": "y"
  },
  "a2f5b6ef-b780-49c0-8d96-fdaff23e27ce": {
   "pattern": "squat",
@@ -5645,14 +5800,12 @@
   "why": "knee extension stretch"
  },
  "a4413bcc-dcd1-4332-a09a-fee94a265e22": {
-  "pattern": "stretch_standing",
+  "pattern": "ext_rot",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [
-   "standing"
-  ],
-  "confidence": 0.5,
-  "why": "external rotation stretch"
+  "variants": [],
+  "confidence": 0.8,
+  "why": "top view bar external rotation"
  },
  "a45123c6-34c2-43cf-b6bf-914a8f40995a": {
   "pattern": "pulldown",
@@ -5727,22 +5880,22 @@
   "why": "biceps stretch"
  },
  "a5828b61-2f5c-42a0-a085-71b91d18ecc3": {
-  "pattern": "stretch_standing",
+  "pattern": "wrist",
   "equipment": "none",
   "hilite": "forearms",
   "variants": [
-   "standing"
+   "circle"
   ],
-  "confidence": 0.4,
+  "confidence": 0.8,
   "why": "wrist circles"
  },
  "a5d1f45b-ff07-45d7-a699-a654f9328934": {
-  "pattern": "none",
+  "pattern": "battle_ropes",
   "equipment": "none",
-  "hilite": "abs",
+  "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "battle ropes"
+  "confidence": 0.8,
+  "why": "y"
  },
  "a630de17-9170-434c-b486-96a6b8705506": {
   "pattern": "hinge",
@@ -5765,12 +5918,14 @@
   "why": "reverse pec deck"
  },
  "a6bced3c-72f5-42a3-9438-5569d46f49fd": {
-  "pattern": "plank",
+  "pattern": "p_rollout",
   "equipment": "barbell",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "ab rollout approximated by plank"
+  "hilite": "obliques",
+  "variants": [
+   "barbell"
+  ],
+  "confidence": 0.9,
+  "why": "barbell rollout"
  },
  "a6c2a970-a621-4e03-be1d-4a29118b1687": {
   "pattern": "hinge",
@@ -5781,12 +5936,12 @@
   "why": "rack deadlift"
  },
  "a6d880e5-bdbe-408f-b762-3b41c7fff834": {
-  "pattern": "none",
+  "pattern": "shuttle_run",
   "equipment": "none",
   "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "shuttle run drill"
+  "confidence": 0.8,
+  "why": "y"
  },
  "a7e6c20a-6ddc-4401-9935-ace2d02e3995": {
   "pattern": "seated_row",
@@ -5797,22 +5952,24 @@
   "why": "low pulley row"
  },
  "a825d0f7-de61-4ca3-a2b2-0f8b00303464": {
-  "pattern": "stretch_seated",
+  "pattern": "floor_top",
   "equipment": "none",
   "hilite": "glutes",
   "variants": [
-   "seated"
+   "ninety"
   ],
-  "confidence": 0.5,
-  "why": "90/90 hip switches"
+  "confidence": 0.8,
+  "why": "top view 90/90 switch"
  },
  "a82944ae-24f4-4f7a-8aac-af251f6907e5": {
-  "pattern": "none",
+  "pattern": "planche",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "planche lean hold"
+  "variants": [
+   "lean"
+  ],
+  "confidence": 0.7,
+  "why": "planche lean, toes on the floor"
  },
  "a8a4ea81-9531-48e1-b6dc-f7621c7b9283": {
   "pattern": "pulldown",
@@ -5825,12 +5982,14 @@
   "why": "half-kneeling pulldown"
  },
  "a8f76beb-b6d8-430b-8e45-cc03d4959043": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
-  "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "clean"
+  "hilite": "quads",
+  "variants": [
+   "clean"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "a94623fc-518f-4a74-947b-febd086264bf": {
   "pattern": "curl",
@@ -5853,14 +6012,14 @@
   "why": "pretzel stretch"
  },
  "a9633731-1d86-4b4a-996f-33a1dee0b0e1": {
-  "pattern": "pushup",
+  "pattern": "p_pushvar",
   "equipment": "none",
   "hilite": "chest",
   "variants": [
-   "bodyweight"
+   "rotation"
   ],
-  "confidence": 0.6,
-  "why": "push-up with rotation approximated"
+  "confidence": 0.9,
+  "why": "push-up with rotation"
  },
  "aa22b0b7-795d-47a6-8c0b-fdd0f6b9c8fc": {
   "pattern": "dip",
@@ -5873,12 +6032,14 @@
   "why": "chair dips"
  },
  "aa3b4ebe-6dee-45ad-a345-cf2acebf4159": {
-  "pattern": "none",
+  "pattern": "rotation",
   "equipment": "dumbbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "lying"
+  ],
+  "confidence": 0.8,
+  "why": "side-lying rotation"
  },
  "aa3c2791-74f7-4fed-a812-297ff454e2f9": {
   "pattern": "hinge",
@@ -5889,8 +6050,8 @@
    "wide",
    "bodyweight"
   ],
-  "confidence": 0.65,
-  "why": "pancake good morning"
+  "confidence": 0.75,
+  "why": "standing wide-stance good morning, bodyweight"
  },
  "aa72741d-17ae-410e-b49a-1df7aaf0afe1": {
   "pattern": "stretch_standing",
@@ -5924,9 +6085,11 @@
   "pattern": "hip_thrust",
   "equipment": "machine",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.5,
-  "why": "glute extension machine approximated"
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.65,
+  "why": "glute kickback machine, standing"
  },
  "abbf941e-e145-4492-aa96-fbbcd955e970": {
   "pattern": "stretch_kneeling",
@@ -5986,14 +6149,14 @@
   "why": "machine row narrow grip"
  },
  "ad20ef5e-e360-4859-9110-668ee0c24721": {
-  "pattern": "pulldown",
+  "pattern": "p_pullover",
   "equipment": "machine",
   "hilite": "lats",
   "variants": [
-   "seated"
+   "machine"
   ],
-  "confidence": 0.6,
-  "why": "pullover machine approximated"
+  "confidence": 0.9,
+  "why": "pullover machine"
  },
  "ad3716b1-5fc9-45aa-9de4-9a1c0153915d": {
   "pattern": "seated_row",
@@ -6044,12 +6207,12 @@
   "why": "band scapular retraction"
  },
  "adf81065-407c-4dd7-8ec5-920cc5944d58": {
-  "pattern": "none",
+  "pattern": "punches",
   "equipment": "none",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "punches"
+  "confidence": 0.8,
+  "why": "y"
  },
  "ae695660-7cee-4601-8241-edd3e2a6d896": {
   "pattern": "chest_fly",
@@ -6060,14 +6223,12 @@
   "why": "cable fly lower chest"
  },
  "ae6a522e-db10-45ba-9642-987468d8a4de": {
-  "pattern": "squat",
+  "pattern": "q_thruster",
   "equipment": "dumbbell",
   "hilite": "quads",
-  "variants": [
-   "overhead"
-  ],
-  "confidence": 0.6,
-  "why": "thruster approximated by squat"
+  "variants": [],
+  "confidence": 0.7,
+  "why": "dumbbells at the shoulders, squat then press"
  },
  "af2f774c-296c-4d14-8e4a-fad77175ae37": {
   "pattern": "crunch",
@@ -6089,12 +6250,14 @@
   "why": "standing pancake"
  },
  "af5a3520-25eb-4dd7-b802-a7382b8ce3ef": {
-  "pattern": "none",
+  "pattern": "calm",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rest period"
+  "hilite": null,
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.8,
+  "why": "rest with timer ring"
  },
  "af77220c-098c-47c2-9f8c-92a651998903": {
   "pattern": "hip_thrust",
@@ -6191,12 +6354,14 @@
   "why": "hanging leg raise"
  },
  "b283cd47-9a1c-4004-9bf5-220560ef0a16": {
-  "pattern": "none",
+  "pattern": "rotation",
   "equipment": "cable",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.8,
+  "why": "cable ER"
  },
  "b2865908-b93e-4507-ada4-a5bb9317566c": {
   "pattern": "bench_press",
@@ -6250,12 +6415,12 @@
   "why": "stair climber"
  },
  "b407768d-d519-47b8-818a-44c9761a8be6": {
-  "pattern": "none",
+  "pattern": "frog_bridge",
   "equipment": "dumbbell",
   "hilite": "glutes",
   "variants": [],
-  "confidence": 0.0,
-  "why": "frog press, unclear pattern"
+  "confidence": 0.8,
+  "why": "y"
  },
  "b48cd640-dd9f-4557-a4db-8cd33d5655a6": {
   "pattern": "stretch_standing",
@@ -6276,12 +6441,14 @@
   "why": "dumbbell crunch"
  },
  "b4dc15da-4d4d-4a93-a30a-74aaf99192ff": {
-  "pattern": "none",
+  "pattern": "bear_crawl",
   "equipment": "dumbbell",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "crawl with pull-through"
+  "variants": [
+   "pull_through"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "b4e78b5a-6141-4fc9-a6f7-cba13ce6559b": {
   "pattern": "bench_press",
@@ -6292,13 +6459,14 @@
   "why": "circular press, unclear"
  },
  "b50a3d3e-cf75-42de-8729-80e163748fb1": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "circle",
+   "cw"
   ],
-  "confidence": 0.45,
+  "confidence": 0.8,
   "why": "neck circles"
  },
  "b526b17b-408d-4da2-8940-ceaf9dae9d93": {
@@ -6338,22 +6506,24 @@
   "why": "isometric pulldown"
  },
  "b61dff58-6e47-4671-853b-208e7cd0ced4": {
-  "pattern": "pullup",
+  "pattern": "p_barskill",
   "equipment": "bar",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.6,
-  "why": "front lever pull-up approximated"
+  "variants": [
+   "front_lever"
+  ],
+  "confidence": 0.9,
+  "why": "front lever pull-up"
  },
  "b646e62d-c616-4460-b4d1-23cc6a6ddb51": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "flex"
   ],
-  "confidence": 0.5,
-  "why": "neck stretch"
+  "confidence": 0.8,
+  "why": "chin to chest, hands behind head"
  },
  "b6c19c36-34be-4d9f-8c07-8bdf9ab3ba1a": {
   "pattern": "farmer_walk",
@@ -6366,12 +6536,14 @@
   "why": "suitcase carry"
  },
  "b7267f90-8706-442b-b918-507e16092b8e": {
-  "pattern": "none",
+  "pattern": "bear_crawl",
   "equipment": "none",
-  "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "bear walk"
+  "hilite": "chest",
+  "variants": [
+   "walk"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "b7c6a444-90ea-4f5b-9fea-748311606eaa": {
   "pattern": "squat",
@@ -6420,30 +6592,32 @@
   "why": "single-arm pulldown"
  },
  "b8ffa641-55e7-4761-ad5d-8336bb3ab3d4": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
   "hilite": "quads",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "variants": [
+   "quads"
+  ],
+  "confidence": 0.8,
+  "why": "prone on forearms"
  },
  "bb948d34-8948-4995-9e59-003d7b6fc1b2": {
-  "pattern": "stretch_standing",
+  "pattern": "leg_swing_r",
   "equipment": "none",
   "hilite": "hamstrings",
   "variants": [
-   "standing"
+   "cross"
   ],
-  "confidence": 0.4,
-  "why": "leg swings"
+  "confidence": 0.8,
+  "why": "crossbody leg swing"
  },
  "bb9b994e-426f-4693-9d16-3f8d5a9c72b8": {
-  "pattern": "none",
+  "pattern": "devils_press",
   "equipment": "dumbbell",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "Devil's press is a compound sequence"
+  "confidence": 0.8,
+  "why": "y"
  },
  "bc45125b-58da-4ee9-8895-16a7b930b789": {
   "pattern": "squat",
@@ -6500,12 +6674,14 @@
   "why": "wide-grip pull-up"
  },
  "be5c2a68-ac68-4833-8144-fb8c2bc7d5fb": {
-  "pattern": "none",
+  "pattern": "floor_core",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic hold"
+  "hilite": "glutes",
+  "variants": [
+   "pelvic"
+  ],
+  "confidence": 0.7,
+  "why": "pelvic floor hold: hook-lying, pulsing cue"
  },
  "be9dfe16-9fc3-463d-a9cd-7aade27ef571": {
   "pattern": "front_raise",
@@ -6593,24 +6769,22 @@
   "why": "single-leg box squat"
  },
  "c4b2ed05-38d5-47fc-9ad1-c23f09fddd61": {
-  "pattern": "pushup",
+  "pattern": "bob_drill",
   "equipment": "none",
-  "hilite": "chest",
-  "variants": [
-   "bodyweight"
-  ],
-  "confidence": 0.4,
-  "why": "breathing drill with push-ups"
+  "hilite": "abs",
+  "variants": [],
+  "confidence": 0.8,
+  "why": "bob under water and exhale bubbles"
  },
  "c5015ed9-042b-42d3-9dac-13759ea9571e": {
-  "pattern": "side_leg_raise",
+  "pattern": "q_sidesquat",
   "equipment": "none",
   "hilite": "glutes",
   "variants": [
-   "standing"
+   "lateral"
   ],
-  "confidence": 0.4,
-  "why": "lateral walk approximated"
+  "confidence": 0.7,
+  "why": "half-squat side stepping, front view"
  },
  "c5797bdf-1aa1-4d51-9775-c929ec5a2aaf": {
   "pattern": "triceps_extension",
@@ -6634,14 +6808,14 @@
   "why": "overhand cable curl"
  },
  "c8571691-f970-4486-9009-fafb77cf01b8": {
-  "pattern": "stretch_lying",
+  "pattern": "floor_top",
   "equipment": "none",
-  "hilite": "obliques",
+  "hilite": "glutes",
   "variants": [
-   "lying"
+   "crossover"
   ],
-  "confidence": 0.5,
-  "why": "hip crossover rotation"
+  "confidence": 0.8,
+  "why": "top view supine one-leg crossover"
  },
  "c85e6137-2577-4e28-82c2-427407d534eb": {
   "pattern": "curl",
@@ -6654,12 +6828,14 @@
   "why": "single-arm preacher curl"
  },
  "c867836d-2929-4977-b23c-014bc21ec08d": {
-  "pattern": "side_bend",
+  "pattern": "q_chop",
   "equipment": "cable",
   "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.55,
-  "why": "cable wood chop approximated by side bend"
+  "variants": [
+   "cable"
+  ],
+  "confidence": 0.7,
+  "why": "high pulley to low across the body"
  },
  "c8b182c3-9dfd-40ca-87b2-ef25f19aa181": {
   "pattern": "lateral_raise",
@@ -6670,12 +6846,12 @@
   "why": "dumbbell lateral raise"
  },
  "c8f951dd-94e0-4548-bbed-3b7bc883f7ba": {
-  "pattern": "none",
+  "pattern": "snap_down",
   "equipment": "none",
   "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "snap down drill"
+  "confidence": 0.8,
+  "why": "y"
  },
  "c9de4551-f1bc-4490-98f4-c9f87c2a2cac": {
   "pattern": "pulldown",
@@ -6740,8 +6916,8 @@
    "single_arm",
    "bodyweight"
   ],
-  "confidence": 0.6,
-  "why": "single-leg curl with sliders likely"
+  "confidence": 0.8,
+  "why": "supine bridge hamstring curl (heel slide)"
  },
  "cbc5fbc9-9bca-4766-941d-4b6903d4a521": {
   "pattern": "crunch",
@@ -6781,15 +6957,14 @@
   "why": "jump rope"
  },
  "cd7bbafc-4092-4194-aa20-e380f1fe45f0": {
-  "pattern": "squat",
+  "pattern": "q_sidesquat",
   "equipment": "none",
   "hilite": "quads",
   "variants": [
-   "wide",
-   "bodyweight"
+   "slide"
   ],
-  "confidence": 0.5,
-  "why": "slides plus squats approximated"
+  "confidence": 0.7,
+  "why": "squat, side shuffle, squat, shuffle back, front view"
  },
  "ce21d3a2-cdc5-410c-9970-c25029ca3769": {
   "pattern": "hip_thrust",
@@ -6829,12 +7004,14 @@
   "why": "dumbbell side bend"
  },
  "cf434716-f846-46d8-b267-8b33d311d8b5": {
-  "pattern": "none",
-  "equipment": "none",
-  "hilite": "back",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "recruitment pulls, unclear"
+  "pattern": "hang_pull",
+  "equipment": "bar",
+  "hilite": "lats",
+  "variants": [
+   "single_arm"
+  ],
+  "confidence": 0.8,
+  "why": "hangboard hang and pull"
  },
  "cf6bf132-fe21-4b70-8f73-006545246f05": {
   "pattern": "side_leg_raise",
@@ -6849,13 +7026,13 @@
  },
  "cf79d9fb-ffce-4648-a64f-27e4274e4c20": {
   "pattern": "dip",
-  "equipment": "none",
+  "equipment": "bench",
   "hilite": "triceps",
   "variants": [
    "bodyweight"
   ],
-  "confidence": 0.65,
-  "why": "floor dips"
+  "confidence": 0.55,
+  "why": "floor/bench dip approximated with the bench dip"
  },
  "cfb6a754-57be-431b-b8d0-d9963120bd5a": {
   "pattern": "wrist_curl",
@@ -6890,12 +7067,14 @@
   "why": "standing abduction"
  },
  "d059c63d-0a81-48a3-912a-44070c0def2e": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "hollow",
+  "equipment": "mat",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "hollow hold, isometric"
+  "variants": [
+   "hollow"
+  ],
+  "confidence": 0.7,
+  "why": "hollow body hold"
  },
  "d18407c2-75d0-43d8-8bbc-dfbb256b6b2f": {
   "pattern": "squat",
@@ -6906,23 +7085,24 @@
   "why": "trap bar squat"
  },
  "d229de41-3533-489f-8460-08a6e3daa25a": {
-  "pattern": "none",
+  "pattern": "balance",
   "equipment": "kettlebell",
   "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "balance drill"
+  "variants": [
+   "circles"
+  ],
+  "confidence": 0.8,
+  "why": "one leg, KB passes around body"
  },
  "d27a93fa-7066-477c-a475-c6b6170831db": {
-  "pattern": "curl",
-  "equipment": "cable",
-  "hilite": "biceps",
+  "pattern": "neck",
+  "equipment": "none",
+  "hilite": "traps",
   "variants": [
-   "single_arm",
-   "standing"
+   "resist"
   ],
-  "confidence": 0.5,
-  "why": "name and Spanish title disagree, likely cable curl"
+  "confidence": 0.8,
+  "why": "neck extension against a hand"
  },
  "d28cf04f-4077-484b-82ed-abaea8d4053d": {
   "pattern": "leg_press",
@@ -6945,28 +7125,34 @@
   "why": "glute stretch"
  },
  "d2cf769a-9271-41ae-90fc-aef813e41740": {
-  "pattern": "none",
+  "pattern": "l_sit",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "straddle L-sit"
+  "variants": [
+   "straddle"
+  ],
+  "confidence": 0.7,
+  "why": "straddle L-sit with top-view inset"
  },
  "d301d901-a2c6-4916-b09e-07ab7a3c8519": {
-  "pattern": "none",
+  "pattern": "punches",
   "equipment": "none",
-  "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "bag training"
+  "hilite": "chest",
+  "variants": [
+   "bag"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "d33f3b19-436f-48a2-aff6-946582c94bdb": {
-  "pattern": "none",
+  "pattern": "pulldown",
   "equipment": "cable",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "wide supinated pulldown"
+  "variants": [
+   "wide"
+  ],
+  "confidence": 0.7,
+  "why": "wide-grip lat pulldown (supinated not drawable)"
  },
  "d36fdd3c-9a35-4643-a3fd-57db78c866d6": {
   "pattern": "side_bend",
@@ -7021,14 +7207,12 @@
   "why": "low cable fly"
  },
  "d551f24d-44fe-4761-9448-edf14d627827": {
-  "pattern": "triceps_extension",
+  "pattern": "body_up",
   "equipment": "none",
   "hilite": "triceps",
-  "variants": [
-   "bodyweight"
-  ],
-  "confidence": 0.5,
-  "why": "body-up approximated"
+  "variants": [],
+  "confidence": 0.8,
+  "why": "body-up on a bar"
  },
  "d561c00c-436d-47d9-b647-222e7b637abd": {
   "pattern": "stretch_kneeling",
@@ -7049,13 +7233,11 @@
   "why": "front split stretch"
  },
  "d5ee3b1f-2879-406f-97a9-51a8b0817cd4": {
-  "pattern": "stretch_standing",
+  "pattern": "roll_down",
   "equipment": "none",
   "hilite": "back",
-  "variants": [
-   "standing"
-  ],
-  "confidence": 0.6,
+  "variants": [],
+  "confidence": 0.8,
   "why": "roll down"
  },
  "d5fb6606-4832-4216-bc0a-36955b5f741f": {
@@ -7155,28 +7337,36 @@
   "why": "heavy one-arm row"
  },
  "d9c1f78c-7bf6-4e6a-92e4-7bf4ed4a0a67": {
-  "pattern": "none",
+  "pattern": "rotation",
   "equipment": "dumbbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "lying",
+   "reverse",
+   "bench"
+  ],
+  "confidence": 0.8,
+  "why": "side-lying IR on bench"
  },
  "d9f6c15a-b224-4ef6-93e9-fd6509b66add": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "rotation",
+  "equipment": "dumbbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "lying"
+  ],
+  "confidence": 0.8,
+  "why": "side-lying ER"
  },
  "da588c5e-ab8b-42a7-a52c-1e680a484334": {
-  "pattern": "stretch_kneeling",
+  "pattern": "quad_rot",
   "equipment": "none",
-  "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.6,
-  "why": "quadruped thoracic rotation"
+  "hilite": "back",
+  "variants": [
+   "near"
+  ],
+  "confidence": 0.8,
+  "why": "quadruped thoracic rotation, near arm"
  },
  "da6ab4d8-edd2-428d-b194-fb15948d3fd5": {
   "pattern": "curl",
@@ -7213,12 +7403,15 @@
   "why": "lateral to front raise"
  },
  "dadecc94-6322-4c66-93b5-9cb44ec79e46": {
-  "pattern": "none",
+  "pattern": "rotation",
   "equipment": "cable",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "standing",
+   "reverse"
+  ],
+  "confidence": 0.8,
+  "why": "cable IR"
  },
  "dae6f6ed-9408-4e62-a59a-1a33f4e8ab36": {
   "pattern": "squat",
@@ -7265,12 +7458,14 @@
   "why": "Copenhagen plank approximated"
  },
  "dc3a2072-abc3-4ef9-b8e6-f5ae6b11bc7f": {
-  "pattern": "none",
-  "equipment": "cable",
+  "pattern": "rotation",
+  "equipment": "band",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "rotator cuff rotation"
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.8,
+  "why": "band ER"
  },
  "dc87b735-016c-410b-915c-e3521fea4be7": {
   "pattern": "lateral_raise",
@@ -7283,14 +7478,14 @@
   "why": "lateral raise machine"
  },
  "dcbfa3f0-ba88-4633-a30d-c188dccc5d3f": {
-  "pattern": "stretch_standing",
+  "pattern": "neck",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "ext"
   ],
-  "confidence": 0.5,
-  "why": "neck stretch"
+  "confidence": 0.8,
+  "why": "look up, hand on collarbone"
  },
  "dcc6e237-a8bb-4eca-bbc5-7fb852636f6a": {
   "pattern": "lunge",
@@ -7301,12 +7496,14 @@
   "why": "walking dumbbell lunge"
  },
  "dcd81ab4-1e6f-4123-b4a5-3364195faf7b": {
-  "pattern": "none",
-  "equipment": "dumbbell",
-  "hilite": "biceps",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "unclear exercise"
+  "pattern": "kneeling_pulldown",
+  "equipment": "cable",
+  "hilite": "lats",
+  "variants": [
+   "single_arm"
+  ],
+  "confidence": 0.8,
+  "why": "half-kneeling"
  },
  "dd52fb99-9426-4a78-b446-20a8e3e4ec47": {
   "pattern": "curl",
@@ -7343,12 +7540,14 @@
   "why": "decline dumbbell press"
  },
  "ddf4111d-907d-4d6c-b583-58323b96ca03": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swimming"
+  "variants": [
+   "freestyle"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "de06856d-109d-4bef-acab-0918028cea36": {
   "pattern": "back_extension",
@@ -7390,12 +7589,12 @@
   "why": "back extension"
  },
  "df18b577-0610-4804-a993-161024da67db": {
-  "pattern": "none",
-  "equipment": "none",
-  "hilite": "traps",
+  "pattern": "rear_delt_fly",
+  "equipment": "dumbbell",
+  "hilite": "back",
   "variants": [],
-  "confidence": 0.0,
-  "why": "unclear exercise"
+  "confidence": 0.8,
+  "why": "upper back/rear delts, existing pattern"
  },
  "df3a6900-55c1-435b-bcde-7510dc229b20": {
   "pattern": "stretch_seated",
@@ -7408,11 +7607,13 @@
   "why": "butterfly stretch"
  },
  "e044cd7d-ef86-4154-a3a8-bd01fc5535ab": {
-  "pattern": "pushup",
+  "pattern": "p_pushvar",
   "equipment": "none",
   "hilite": "serratus",
-  "variants": [],
-  "confidence": 0.6,
+  "variants": [
+   "scapular"
+  ],
+  "confidence": 0.9,
   "why": "scapular push-up"
  },
  "e0d9e9ef-09ee-4d26-9504-622093810414": {
@@ -7424,14 +7625,14 @@
   "why": "TRX push-up"
  },
  "e1a4c2a6-d4ed-4550-b37e-dc0078d96c64": {
-  "pattern": "seated_row",
+  "pattern": "p_bodyrow",
   "equipment": "none",
   "hilite": "lats",
   "variants": [
-   "bodyweight"
+   "rings"
   ],
-  "confidence": 0.6,
-  "why": "ring row approximated"
+  "confidence": 0.9,
+  "why": "ring row, inclined body"
  },
  "e1b99153-0102-47fc-b0cd-c21509827b0b": {
   "pattern": "side_plank",
@@ -7462,22 +7663,22 @@
   "why": "incline cable chest press"
  },
  "e237611c-2730-4d0c-891b-bb29d3d15297": {
-  "pattern": "none",
+  "pattern": "pendulum",
   "equipment": "dumbbell",
   "hilite": "shoulders",
   "variants": [],
-  "confidence": 0.0,
-  "why": "pendulum shoulder drill"
+  "confidence": 0.8,
+  "why": "pendulum swing"
  },
  "e2599e86-d8b0-434e-8a48-aa3c2df7e790": {
-  "pattern": "seated_row",
-  "equipment": "band",
+  "pattern": "p_bodyrow",
+  "equipment": "none",
   "hilite": "lats",
   "variants": [
-   "bodyweight"
+   "trx"
   ],
-  "confidence": 0.6,
-  "why": "TRX row"
+  "confidence": 0.9,
+  "why": "TRX suspended row"
  },
  "e28b0685-7a8f-4343-9c0b-63b38386d30b": {
   "pattern": "leg_raise",
@@ -7491,23 +7692,19 @@
   "why": "scissors"
  },
  "e29d9914-6b02-490b-8f3a-f9fe8f21993c": {
-  "pattern": "pulldown",
-  "equipment": "machine",
+  "pattern": "q_skierg",
+  "equipment": "none",
   "hilite": "lats",
-  "variants": [
-   "standing"
-  ],
-  "confidence": 0.5,
-  "why": "ski machine approximated"
+  "variants": [],
+  "confidence": 0.7,
+  "why": "ski ergometer: reach overhead, pull cords down with hip hinge"
  },
  "e38c3858-5525-4ef5-9258-e1a3ab1ef034": {
-  "pattern": "leg_raise",
+  "pattern": "p_vup",
   "equipment": "none",
   "hilite": "abs",
-  "variants": [
-   "lying"
-  ],
-  "confidence": 0.6,
+  "variants": [],
+  "confidence": 0.9,
   "why": "V-up"
  },
  "e3f424e1-4c9f-4892-8df2-230624680439": {
@@ -7570,20 +7767,22 @@
   "why": "cyclist squat"
  },
  "e56f2970-e4c9-45eb-8e8c-52abb590e7a6": {
-  "pattern": "none",
+  "pattern": "pallof_press",
   "equipment": "cable",
-  "hilite": "obliques",
+  "hilite": "abs",
   "variants": [],
-  "confidence": 0.0,
-  "why": "Pallof press is anti-rotation, no pattern"
+  "confidence": 0.8,
+  "why": "anti-rotation press"
  },
  "e5a62151-5350-4c86-8a19-3e9ca7bf0f38": {
-  "pattern": "none",
+  "pattern": "floor_core",
   "equipment": "none",
-  "hilite": "glutes",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "sit-out drill"
+  "hilite": "obliques",
+  "variants": [
+   "sit_out"
+  ],
+  "confidence": 0.7,
+  "why": "sit-out from bear position (guess)"
  },
  "e60125f0-3a88-4707-815f-fe0e2b4be3c4": {
   "pattern": "jump_rope",
@@ -7594,15 +7793,16 @@
   "why": "skipping"
  },
  "e62d52fa-32f9-4747-9005-f88f05dc8334": {
-  "pattern": "rear_delt_fly",
+  "pattern": "p_prone",
   "equipment": "none",
-  "hilite": "shoulders",
+  "hilite": "traps",
   "variants": [
-   "lying",
-   "bodyweight"
+   "T",
+   "Y",
+   "I"
   ],
-  "confidence": 0.4,
-  "why": "T/Y/I raises approximated"
+  "confidence": 0.9,
+  "why": "prone T/Y/I arm raises"
  },
  "e6890815-de67-4882-9cd5-82b7630208ad": {
   "pattern": "squat",
@@ -7651,12 +7851,15 @@
   "why": "Helms row, chest-supported"
  },
  "e79616cb-f5fb-4b10-b99d-09d43774e142": {
-  "pattern": "none",
+  "pattern": "lever",
   "equipment": "bar",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "front lever tuck"
+  "hilite": "lats",
+  "variants": [
+   "front",
+   "tuck"
+  ],
+  "confidence": 0.7,
+  "why": "tuck front lever"
  },
  "e797ca42-f9fc-480a-8f48-7f6905978c72": {
   "pattern": "rear_delt_fly",
@@ -7715,12 +7918,15 @@
   "why": "hamstring stretch"
  },
  "e9e7372c-b5c1-45d9-ae5c-b1aa0fc2e2ce": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "barbell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "clean and press"
+  "variants": [
+   "clean",
+   "press"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "e9f3446f-ca98-4bf2-817c-0dacd123cecd": {
   "pattern": "squat",
@@ -7763,12 +7969,14 @@
   "why": "standing curl"
  },
  "eb8d3fa8-8cfc-4961-8e3d-5bf0a5081797": {
-  "pattern": "none",
+  "pattern": "static_hold",
   "equipment": "none",
   "hilite": "quads",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "landing drill"
+  "variants": [
+   "landing"
+  ],
+  "confidence": 0.7,
+  "why": "hop and stick a single-leg landing"
  },
  "eb9476ac-2c00-4f49-a40f-f81682161a75": {
   "pattern": "hammer_curl",
@@ -7779,14 +7987,16 @@
   "why": "alternating hammer curl"
  },
  "ebe7d74b-78a8-4757-9310-6fb22b23aa58": {
-  "pattern": "back_extension",
-  "equipment": "bench",
-  "hilite": "back",
+  "pattern": "p_prone",
+  "equipment": "none",
+  "hilite": "lats",
   "variants": [
-   "lying"
+   "incline",
+   "Y",
+   "W"
   ],
-  "confidence": 0.55,
-  "why": "hyper Y-W combo approximated"
+  "confidence": 0.9,
+  "why": "prone Y-W combo, chest supported on a bench"
  },
  "ec9dca8d-1456-430a-abed-70b8bab4779a": {
   "pattern": "squat",
@@ -7828,12 +8038,14 @@
   "why": "overhead claps approximated"
  },
  "ed4c132b-1955-49f8-9be3-29e6ffb8eba1": {
-  "pattern": "none",
+  "pattern": "pelvic_floor",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "pelvic floor"
+  "hilite": null,
+  "variants": [
+   "quick"
+  ],
+  "confidence": 0.8,
+  "why": "fast pulses"
  },
  "edc3f6b7-96b0-4967-90d7-bba9d7d442cb": {
   "pattern": "squat",
@@ -7905,12 +8117,12 @@
   "why": "double-leg abdominal press approximated"
  },
  "f0f53b8e-0136-4195-baf3-781903651359": {
-  "pattern": "none",
+  "pattern": "power_clean",
   "equipment": "dumbbell",
   "hilite": "glutes",
   "variants": [],
-  "confidence": 0.0,
-  "why": "hang power clean"
+  "confidence": 0.7,
+  "why": "dumbbell hang power clean"
  },
  "f18eb684-9a9b-4566-9771-e22a87d536b1": {
   "pattern": "rear_delt_fly",
@@ -7923,22 +8135,22 @@
   "why": "band pull-apart"
  },
  "f1946fd4-793d-47a5-b66f-599b7f53695d": {
-  "pattern": "stretch_standing",
+  "pattern": "wall_drill_r",
   "equipment": "none",
   "hilite": "traps",
   "variants": [
-   "standing"
+   "slide"
   ],
-  "confidence": 0.4,
-  "why": "wall slides mobility"
+  "confidence": 0.8,
+  "why": "forearm wall slide"
  },
  "f20ab712-f953-4705-8710-9681392ddd07": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "wall_ball",
+  "equipment": "swiss_ball",
   "hilite": "quads",
   "variants": [],
-  "confidence": 0.0,
-  "why": "wall ball throw"
+  "confidence": 0.8,
+  "why": "y"
  },
  "f24cb758-9c0d-42d4-ad9e-6025c527dd13": {
   "pattern": "shoulder_press",
@@ -7960,12 +8172,14 @@
   "why": "triceps push-up"
  },
  "f2733700-aa5d-4df7-bc52-1876ab4fb479": {
-  "pattern": "none",
+  "pattern": "static_hold",
   "equipment": "dumbbell",
-  "hilite": "obliques",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "isometric hold"
+  "hilite": "forearms",
+  "variants": [
+   "axe"
+  ],
+  "confidence": 0.7,
+  "why": "dumbbell held by one end, forearm horizontal (guess)"
  },
  "f2e17c8d-7285-4fd5-bfe8-26f407802850": {
   "pattern": "triceps_extension",
@@ -8028,20 +8242,24 @@
   "why": "row with rotation"
  },
  "f41ac754-45a0-443b-afe5-e624e215229f": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "lever",
+  "equipment": "bar",
   "hilite": "lats",
-  "variants": [],
-  "confidence": 0.0,
+  "variants": [
+   "front"
+  ],
+  "confidence": 0.7,
   "why": "front lever"
  },
  "f4291da4-09c2-4605-a90c-c926c6a92515": {
-  "pattern": "none",
+  "pattern": "hang",
   "equipment": "bar",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "arch hang"
+  "hilite": "lats",
+  "variants": [
+   "arch"
+  ],
+  "confidence": 0.7,
+  "why": "arch hang: active shoulders"
  },
  "f4467e9a-9bb1-4e93-bec6-10a5d7738ffb": {
   "pattern": "shoulder_press",
@@ -8108,12 +8326,14 @@
   "why": "calf raise"
  },
  "f5252c85-04b7-48f0-97cf-711f326a5821": {
-  "pattern": "none",
+  "pattern": "swim",
   "equipment": "none",
-  "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "swimming"
+  "hilite": "lats",
+  "variants": [
+   "freestyle"
+  ],
+  "confidence": 0.8,
+  "why": "y"
  },
  "f5252fbe-1e00-4b8d-8781-2e56d6a5250f": {
   "pattern": "calf_raise",
@@ -8122,16 +8342,18 @@
   "variants": [
    "reverse"
   ],
-  "confidence": 0.35,
-  "why": "tibialis raise is the opposite motion"
+  "confidence": 0.85,
+  "why": "tibialis raise: toes lift against a wall"
  },
  "f5ad82a8-adf8-4795-9874-1f6d183c56ed": {
-  "pattern": "none",
-  "equipment": "none",
+  "pattern": "hollow",
+  "equipment": "bench",
   "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "dragon flag"
+  "variants": [
+   "dragon"
+  ],
+  "confidence": 0.7,
+  "why": "dragon flag on a bench"
  },
  "f5b84269-18af-4464-a61f-b767cbcd81dc": {
   "pattern": "pushup",
@@ -8234,12 +8456,14 @@
   "why": "prisoner squat"
  },
  "f9880802-e5bd-4143-97f6-d0ee82ba9dd2": {
-  "pattern": "none",
+  "pattern": "balance",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "balance drill"
+  "hilite": "glutes",
+  "variants": [
+   "eyes_closed"
+  ],
+  "confidence": 0.8,
+  "why": "eyes closed"
  },
  "f9a0a918-3c0c-464e-bbba-1bd309d4a519": {
   "pattern": "lunge",
@@ -8267,8 +8491,8 @@
    "wide",
    "bodyweight"
   ],
-  "confidence": 0.6,
-  "why": "side split squat approximated"
+  "confidence": 0.75,
+  "why": "side split squat, lateral lunge front view"
  },
  "fad49a13-b2a0-4b1f-b262-29b32248257d": {
   "pattern": "high_knees",
@@ -8279,20 +8503,24 @@
   "why": "marching high knees"
  },
  "fae44c34-2e85-4d22-8fb8-7b14faf14719": {
-  "pattern": "none",
+  "pattern": "breathing",
   "equipment": "none",
-  "hilite": "abs",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "breathing drill"
+  "hilite": null,
+  "variants": [
+   "standing"
+  ],
+  "confidence": 0.8,
+  "why": "chest and belly expand"
  },
  "fae5378b-db4b-4ab5-9207-07a6abab917f": {
-  "pattern": "none",
+  "pattern": "foam_roll",
   "equipment": "none",
   "hilite": "hamstrings",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "foam roller"
+  "variants": [
+   "hamstrings"
+  ],
+  "confidence": 0.8,
+  "why": "hamstrings over roller"
  },
  "fbeb1fd5-d259-4a85-a993-03569d8146dc": {
   "pattern": "dip",
@@ -8414,12 +8642,16 @@
   "why": "incline chest press machine"
  },
  "fe249e2f-5856-420f-8a34-1b02c7fde141": {
-  "pattern": "none",
+  "pattern": "olympic_lift",
   "equipment": "kettlebell",
   "hilite": "shoulders",
-  "variants": [],
-  "confidence": 0.0,
-  "why": "clean and press"
+  "variants": [
+   "clean",
+   "press",
+   "double"
+  ],
+  "confidence": 0.8,
+  "why": ""
  },
  "fe328b2b-cc6d-4f12-a2c6-85ce374217c7": {
   "pattern": "curl",

@@ -701,12 +701,22 @@ def _reverse_plank(hil):
 def side_plank(eq, var, hil):
     hil = hil or "obliques"
     piv = (9, -6)
+    fore = has(var, "forearm", "forearms", "elbow")
+
     def f(rot, lean):
+        if fore:
+            return dict(H=(0, -152), lean=lean, head=lean, rot=rot, pivot=piv, off=(-110, 0),
+                        eR=lambda J: (J["SR"][0] + 1, -6.5), wR=lambda J: (J["SR"][0] + 13, -6.5),
+                        wL=lambda J: (J["SL"][0] + 2, J["SL"][1] - 92), hR=(0, 1), hL=(0, -1), lR=(0, 0), lL=(0, 0))
         return dict(H=(0, -152), lean=lean, head=lean, rot=rot, pivot=piv, off=(-110, 0),
                     wR=lambda J: (J["SR"][0], -6.5), wL=lambda J: (J["SL"][0] + 2, J["SL"][1] - 92),
                     hR=(0, 1), hL=(0, -1), lR=(0, 0), lL=(0, 0))
-    a = f(80, -32)    # hips dropped
-    b = f(66, 0)      # straight line
+    if fore:
+        a = f(85, -30)    # hips dropped
+        b = f(77, 0)      # straight line, elbow under the shoulder
+    else:
+        a = f(80, -32)    # hips dropped
+        b = f(66, 0)      # straight line
     return make_spec([a, b], None, X.mat(-200, 200, h=4), hilite=hil, view_kind="front")
 
 
@@ -718,11 +728,11 @@ def russian_twist(eq, var, hil):
     legs = dict(A=(hip[0] + 140 * math.cos(math.radians(32)), hip[1] - 140 * math.sin(math.radians(32))),
                 hip=hip, torso=-40, head=-38, foot=-70, kh=(0, -1))
     S = X.add(hip, X.vup(-40, 92))
-    def pose(W, behind=False, hint=(0, 1)):
-        return dict(legs, W=W, W2=(W[0] - 3, W[1] + 2), ah=hint, ah2=hint, behind=behind)
-    near = pose((S[0] + 62, S[1] + 62), False, (-0.3, 1))
-    center = pose((S[0] + 78, S[1] + 36), False)
-    far = pose((S[0] + 62, S[1] + 58), True, (-0.3, 1))
+    def pose(W, behind=False, hint=(0, 1), twist=0.0):
+        return dict(legs, W=W, W2=(W[0] - 3, W[1] + 2), ah=hint, ah2=hint, behind=behind, twist=twist)
+    near = pose((S[0] + 62, S[1] + 62), False, (-0.3, 1), twist=1.0)
+    center = pose((S[0] + 78, S[1] + 36), False, twist=0.0)
+    far = pose((S[0] + 62, S[1] + 58), True, (-0.3, 1), twist=-1.0)
     scene, equip = X.mat(-120, 150), None
     if eq in ("dumbbell", "kettlebell"):
         back, fr = X.held_pair("wrist", eq)
@@ -756,29 +766,43 @@ def side_bend(eq, var, hil):
 def mountain_climber(eq, var, hil):
     hil = hil or "abs"
     base = _plank_kw(110, True)
-    base["kh"] = (0.4, -1)
     hip = base["hip"]
-    ext = base["A"]
-    drive = (hip[0] + 22, hip[1] + 34)
-    def pose(near_drive):
+
+    def ang(u):
+        """Leg angles (thigh, shin; from down, + towards +x) for u = 0 (leg back) .. 1 (knee driven in): the foot trails
+        low while the knee comes forward, so the swap reads as a climbing stride and not as a kick."""
+        pts = ((0.0, -70.4, -70.4), (0.25, -45.0, -86.0), (0.5, 45.0, -88.0), (0.75, 70.0, -84.0), (1.0, 85.0, -75.0))
+        for q in range(len(pts) - 1):
+            if u <= pts[q + 1][0] + 1e-9:
+                t = (u - pts[q][0]) / (pts[q + 1][0] - pts[q][0])
+                t = t * t * (3 - 2 * t) * 0.35 + t * 0.65
+                return [pts[q][1] + (pts[q + 1][1] - pts[q][1]) * t, pts[q][2] + (pts[q + 1][2] - pts[q][2]) * t]
+        return [pts[-1][1], pts[-1][2]]
+
+    def leg(u):
+        th, sh = ang(u)
+        knee = (hip[0] + math.sin(math.radians(th)) * 76, hip[1] + math.cos(math.radians(th)) * 76)
+        ank = (knee[0] + math.sin(math.radians(sh)) * 70, knee[1] + math.cos(math.radians(sh)) * 70)
+        mid_ = ((hip[0] + ank[0]) / 2, (hip[1] + ank[1]) / 2)
+        return ank, (knee[0] - mid_[0], knee[1] - mid_[1]), 24 + sh * 0.0
+
+    keys = []
+    n = 20
+    for i in range(n):
+        ph = 2 * math.pi * i / n
+        u = (1 - math.cos(ph)) / 2   # near leg: 0 (back) -> 1 (in) -> 0
+        a1, k1, _ = leg(u)
+        a2, k2, _ = leg(1 - u)
         kw = dict(base)
-        if near_drive:
-            kw["A"] = drive
-            kw["kh"] = (0.4, -1)
-            kw["foot"] = 70
-            kw["A2"] = ext
-            kw["kh2"] = (0.4, -1)
-            kw["foot2"] = 64
-        else:
-            kw["A"] = ext
-            kw["A2"] = drive
-            kw["kh2"] = (0.4, -1)
-            kw["foot2"] = 70
+        kw.update(A=a1, kh=k1, foot=90 + (-62 if u < 0.5 else 0) * 0 + (-20 + 70 * min(1.0, u * 1.6)),
+                  A2=a2, kh2=k2, foot2=70 - 40 * (1 - u) * 0 + (-20 + 70 * min(1.0, (1 - u) * 1.6)))
+        kw["foot"] = -20 + 80 * min(1.0, u * 1.5)
+        kw["foot2"] = -20 + 80 * min(1.0, (1 - u) * 1.5)
         kw["E2"] = (kw["E"][0] - 6, kw["E"][1])
         kw["W2"] = (kw["W"][0] - 8, kw["W"][1])
-        return kw
-    return make_spec([pose(False), pose(True)], None, X.mat(-140, 200, h=4), hilite=hil, hands_floor=True,
-                     steps=6)
+        keys.append(kw)
+    return make_spec(keys, None, X.mat(-140, 200, h=4), hilite=hil, hands_floor=True, loop="cycle", steps=1,
+                     frame_ms=135)
 
 
 # =================================================================================================== BICYCLE CRUNCH

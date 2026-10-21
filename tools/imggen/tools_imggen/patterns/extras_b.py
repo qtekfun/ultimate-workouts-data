@@ -116,8 +116,8 @@ def ang_down(p, q):
 
 def mk(A=GROUND_ANKLE, hip=None, shin=0.0, thigh=0.0, torso=0.0, head=None, W=None, uarm=0.0, farm=0.0, ah=(0, 1),
        W2=None, FA=None, ah2=(0, 1), A2=None, FL=None, kh=(1, 0), kh2=(1, 0), foot=0.0, foot2=0.0,
-       hide=False, hide2=False, behind=False, front2=False, sh_up=0.0, hand=None, E=None, E2=None, **_):
-    J = {"miss": 0.0}
+       hide=False, hide2=False, behind=False, front2=False, sh_up=0.0, hand=None, E=None, E2=None, twist=0.0, **_):
+    J = {"miss": 0.0, "twist": float(twist)}
     J["ankle"] = (float(A[0]), float(A[1]))
     if hip is not None:
         k, h, m = ik2(J["ankle"], hip, LEN["shin"], LEN["thigh"], kh)
@@ -370,6 +370,31 @@ def draw_frame(J, hilite, equip, scene, front, view, size=360, floor=True, extra
     ex_, ey_ = hx + nx * r * 0.55 + ux * r * 0.05, hy + ny * r * 0.55 + uy * r * 0.05
     er = 2.2 * k
     d.ellipse([ex_ - er, ey_ - er, ex_ + er, ey_ + er], fill=(30, 30, 40))
+    tw = J.get("twist", 0.0)
+    if abs(tw) > 0.05:
+        # torso rotation cue (seen from the side): chest turned to the viewer (collar, lighter chest) or back turned away (spine)
+        hp_, sh2 = J["hip"], J["shoulder"]
+        nn = N["torso"]
+        if tw > 0:
+            c0 = (hp_[0] + (sh2[0] - hp_[0]) * 0.68 + nn[0] * 7, hp_[1] + (sh2[1] - hp_[1]) * 0.68 + nn[1] * 7)
+            cc = T(c0)
+            tdir = (sh2[0] - hp_[0], sh2[1] - hp_[1])
+            tn = math.hypot(*tdir) or 1
+            tdir = (tdir[0] / tn, tdir[1] / tn)
+            a_ = T((c0[0] - tdir[0] * 19 + nn[0] * 1, c0[1] - tdir[1] * 19 + nn[1] * 1))
+            b_ = T((c0[0] + tdir[0] * 19 + nn[0] * 1, c0[1] + tdir[1] * 19 + nn[1] * 1))
+            capsule(d, a_, b_, 7.5 * tw * k, 7.5 * tw * k, (84, 134, 232))
+            v0 = (sh2[0] - tdir[0] * 3 + nn[0] * 6, sh2[1] - tdir[1] * 3 + nn[1] * 6)
+            d.line([T(v0), T((v0[0] - tdir[0] * 11 + nn[0] * 4 * tw, v0[1] - tdir[1] * 11 + nn[1] * 4 * tw))], fill=(30, 66, 160), width=int(1.6 * k))
+            if tw > 0.35:  # face turns to the viewer: second eye
+                ex2, ey2 = hx + nx * r * 0.18 + ux * r * 0.05, hy + ny * r * 0.18 + uy * r * 0.05
+                d.ellipse([ex2 - er, ey2 - er, ex2 + er, ey2 + er], fill=(30, 30, 40))
+        else:
+            a_ = T((sh2[0] - nn[0] * 12 - (sh2[0] - hp_[0]) * 0.05, sh2[1] - nn[1] * 12 - (sh2[1] - hp_[1]) * 0.05))
+            b_ = T((hp_[0] + (sh2[0] - hp_[0]) * 0.25 - nn[0] * 12, hp_[1] + (sh2[1] - hp_[1]) * 0.25 - nn[1] * 12))
+            d.line([a_, b_], fill=(30, 66, 160), width=int(1.8 * k))
+            if tw < -0.35:  # back of the head
+                d.ellipse([hx - r, hy - r, hx + r, hy + r], fill=HAIR)
     def do_hilite(img, d):
         if hilite not in MUSC:
             return img, d
@@ -432,7 +457,7 @@ def render_spec(spec, size=360, steps=None):
     if spec.get("view_kind") != "front":
         keys = normalize_keys(keys)
     seq = sequence(keys, loop=spec.get("loop", "pingpong"), steps=steps or spec.get("steps"),
-                   linear=spec.get("linear", False), hold=spec.get("hold", (600, 450)))
+                   linear=spec.get("linear", False), hold=spec.get("hold", (600, 450)), frame_ms=spec.get("frame_ms", 70))
     Js = []
     front_kind = spec.get("view_kind") == "front"
     for kw, ms in seq:
@@ -752,7 +777,7 @@ def ball(cx, cy, r, col=BALLC):
 
 # ----------------------------------------------------------------------------- front-view figure (jumping jack, side bend ...)
 def mkf(H=(0, -152), lean=0.0, head=None, aR=(0, 0), aL=(0, 0), lR=(0, 0), lL=(0, 0), rot=0.0, pivot=None,
-        off=(0, 0), sw=17, hw=9, wR=None, wL=None, hR=(0.6, 1), hL=(-0.6, 1), eyes=True, face=1, ry=None):
+        off=(0, 0), sw=17, hw=9, wR=None, wL=None, hR=(0.6, 1), hL=(-0.6, 1), eyes=True, face=1, ry=None, eR=None):
     """Front-facing figure.  Angles from 'down', positive towards screen-right.  rot = rotate whole body (deg, clockwise)
     around `pivot` (default hip), off = translation applied last."""
     J = {"kind": "front"}
@@ -790,6 +815,9 @@ def mkf(H=(0, -152), lean=0.0, head=None, aR=(0, 0), aL=(0, 0), lR=(0, 0), lL=(0
             t_ = tgt(J) if callable(tgt) else tgt
             e, w, _ = ik2(J["S" + tag], t_, LEN["uarm"], LEN["farm"], hint)
             J["e" + tag], J["w" + tag] = e, w
+    if eR is not None:  # explicit near elbow (wR is then the hand, no IK): forearm drawn foreshortened on the floor
+        J["eR"] = eR(J) if callable(eR) else eR
+        J["wR"] = wR(J) if callable(wR) else wR
     return J
 
 
